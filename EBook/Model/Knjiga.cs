@@ -9,14 +9,14 @@ namespace EBook.Model
     [PrimaryKey("knjigaID")]
     public class Knjiga
     {
-        public String knjigaID;
-        public String naziv;
-        public String autor;
-        public String opis;
-        public String zanr;
-        public String brstrana;
-        public String godina;
+        public string knjigaID;
+        public string naziv;
+        public string autor;
+        public string opis;
+        public string zanr;
+        public string brstrana;
+        public string godina;
         public int kolicina; 
-        
+        public string pismo;
     }
 }

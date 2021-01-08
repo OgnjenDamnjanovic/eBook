@@ -9,15 +9,12 @@ namespace EBook.Model
     {
         public string korisnikID;
         public string email;
-        
         public string sifra;
-
         public string ime;
         public string prezime;
         public string brtelefona;
         public string adresa;
         public int tip;
-        //public List<string> rezervacije;
-
+        public string grad;
     }
 }

@@ -61,10 +61,10 @@
 							</a>
 						</li>
 						<li class="btn btn2">
-							<a href="shop.html">Product Catalogue</a>
+							<a asp-page="/Library">Library</a>
 						</li>
 						<li class="btn btn3">
-							<a href="single_product.html">Single product</a>
+							<a asp-page="/Book">Single book</a>
 						</li>
 					</ul>
 				</div>
@@ -81,14 +81,6 @@
 								<li data-thumb="images/s1.jpg">
 									<div class="thumb-image">
 										<img src="images/lib8.jpg" data-imagezoom="true" alt=" " class="img-responsive"> </div>
-								</li>
-								<li data-thumb="images/s2.jpg">
-									<div class="thumb-image">
-										<img src="images/s2.jpg" data-imagezoom="true" alt=" " class="img-responsive"> </div>
-								</li>
-								<li data-thumb="images/s3.png">
-									<div class="thumb-image">
-										<img src="images/s3.png" data-imagezoom="true" alt=" " class="img-responsive"> </div>
 								</li>
 							</ul>
 							<div class="clearfix"></div>
@@ -157,23 +149,10 @@
 						</ul>
 
 					</div>
-					<div class="color-quality">
-						<div class="color-quality-right">
-							<h5>Also Formats avaiable in:</h5>
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null">paper back &nbsp;$90.00</option>
-								<option value="null">Audio Book &nbsp;$200.00</option>
-							</select>
-						</div>
-					</div>
+					
 					<div class="clearfix"></div>
 					<div class="description">
-						<h5>Check delivery, payment options and charges at your location</h5>
-						<form action="#" method="post">
-							<input type="text" value="Enter pincode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter pincode';}"
-							    required="">
-							<input type="submit" value="Check">
-						</form>
+						
 					</div>
 					<div class="occasion-cart">
 						<div class="chr single-item single_page_b">
@@ -547,5 +526,5 @@
 	</script>
 	<!-- //here ends scrolling icon -->
 	<!-- smoothscroll -->
-	<script src="js/SmoothScroll.min.js"></script>
+	<!--<script src="js/SmoothScroll.min.js"></script>-->
 	<!-- //smoothscroll -->
