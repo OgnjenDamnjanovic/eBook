@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vdmiAp1E29MuyrayXIDeEa56yS+cmL6H4sAl4WMys2oHvexMtCSQetKlbPzE58X4I7EEp/Ttr0fF/8JinCvGrg==",
+  "dgSpecHash": "ewNIOoohbKcwH06ZzfdAt3/UZby+24syZmbCx91tEqx/JfyNY67t5MikRTwVyq/PHEyXid0zsMPmIhqa8CQ6ZQ==",
   "success": true,
-  "projectFilePath": "E:\\Napredne baze projekti\\cassandra\\EBook\\EBook.csproj",
+  "projectFilePath": "E:\\Napredne baze projekti\\Git\\EBook\\EBook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nikola\\.nuget\\packages\\cassandracsharpdriver\\3.16.1\\cassandracsharpdriver.3.16.1.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\cqlpoco\\1.0.0\\cqlpoco.1.0.0.nupkg.sha512",

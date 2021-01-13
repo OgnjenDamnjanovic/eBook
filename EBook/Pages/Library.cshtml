@@ -2,9 +2,14 @@
 @model MyApp.Namespace.LibraryModel
 @{
 }
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-<div class="banner-bg-inner">
+
+</head>
+
+		<div class="banner-bg-inner">
 			<!-- banner-text -->
 			<div class="banner-text-inner">
 				<div class="container">
@@ -17,7 +22,7 @@
 			<!-- //banner-text -->
 		</div>
 		<!-- //banner -->
-		<!-- breadcrumbs -->
+		<!-- breadcrumbs 
 		<div class="crumbs text-center">
 			<div class="container">
 				<div class="row">
@@ -33,7 +38,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<!--//breadcrumbs ends here-->
 		<!-- Shop -->
 		<div class="innerf-pages section">
@@ -44,27 +49,36 @@
 					<div class="left-side">
 						<h3 class="shopf-sear-headits-sear-head">
 							Categories</h3>
-						<ul>
-							<li>
-								<input type="checkbox" class="checked">
-								<span class="span">Biographies</span>
-							</li>
-							<li>
-								<input type="checkbox" class="checked">
-								<span class="span">Fiction</span>
-							</li>
-							<li>
-								<input type="checkbox" class="checked">
-								<span class="span">Management</span>
-							</li>
-							<li>
-								<input type="checkbox" class="checked">
-								<span class="span">Business</span>
-							</li>
+						<ul id="categories">
+							@if (Model.zanrFilter!=null){
+							<li><a href="/Library">All</a></li>}
+							else
+							{
+								<li><a style="pointer-events: none; cursor: default;color:black;" href="/Library">All</a></li>
+							}
+							@foreach (var zanr in Model.zanrovi)							
+							{	@if (Model.zanrFilter==null||zanr.CompareTo(Model.zanrFilter)!=0)
+								{
+									<li>
+										<a href="/Library?zanr=@zanr">@zanr</a>
+									</li>
+								}
+								else
+								{
+									<li>
+										<a style="pointer-events: none; cursor: default;color:black;"href="/Library?zanr=@zanr">@zanr</a>
+									</li>
+								}
+								
+
+								
+							}
+							
+							
 
 						</ul>
 					</div>
-					<!-- // preference -->
+					<!--  
 					<div class="search-hotel">
 						<h3 class="shopf-sear-headits-sear-head">
 							<span>author</span> in focus</h3>
@@ -73,7 +87,8 @@
 							<input type="submit" value="Search">
 						</form>
 					</div>
-					<!-- price range -->
+					-->
+					<!-- price range 
 					<div class="range">
 						<h3 class="shopf-sear-headits-sear-head">
 							<span>Price</span> range</h3>
@@ -85,8 +100,9 @@
 							</li>
 						</ul>
 					</div>
+					-->
 					<!-- //price range -->
-					<!--preference -->
+					<!--preference 
 					<div class="left-side">
 						<h3 class="shopf-sear-headits-sear-head">
 							<span>latest</span> arrivals</h3>
@@ -106,8 +122,9 @@
 
 						</ul>
 					</div>
+					-->
 					<!-- // preference -->
-					<!-- discounts -->
+					<!-- discounts 
 					<div class="left-side">
 						<h3 class="shopf-sear-headits-sear-head">Language</h3>
 						<ul>
@@ -140,9 +157,9 @@
 								<span class="span">French</span>
 							</li>
 						</ul>
-					</div>
+					</div>-->
 					<!-- //discounts -->
-					<!-- Binding -->
+					<!-- Binding 
 					<div class="left-side">
 						<h3 class="shopf-sear-headits-sear-head">Format</h3>
 						<ul>
@@ -167,9 +184,9 @@
 								<span class="span">Audio Book</span>
 							</li>
 						</ul>
-					</div>
+					</div>-->
 					<!-- //Binding -->
-					<!-- discounts -->
+					<!-- discounts 
 					<div class="left-side">
 						<h3 class="shopf-sear-headits-sear-head">Discount</h3>
 						<ul>
@@ -190,9 +207,9 @@
 								<span class="span">60% or more</span>
 							</li>
 						</ul>
-					</div>
+					</div>-->
 					<!-- //discounts -->
-					<!-- reviews -->
+					<!-- reviews 
 					<div class="customer-rev left-side">
 						<h3 class="shopf-sear-headits-sear-head">Customer Review</h3>
 						<ul>
@@ -247,8 +264,8 @@
 								</a>
 							</li>
 						</ul>
-					</div>
-					<!-- //reviews -->
+					</div>-->
+					
 
 
 				</div>
@@ -259,735 +276,45 @@
 						<!-- product-sec1 -->
 						<div class="product-sec1">
 							<!-- row1-->
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib8.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>be creative</h4>
-										<p>Clayton Barton</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 100.00</li>
-												<li>
-													$200.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
+							
+							
+							@foreach (var knjiga in Model.sveKnjige)
+							{  
+								
+								<div class="book" style="display: flex;justify-content:space-between; width:100%;flex-direction:row; border:1px solid lime; margin-bottom:15px;border-radius: 5px;">
+									<div style="display: flex;flex-direction:row;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<a href="Book?id=@knjiga.knjigaID&zanr=@knjiga.zanr"><img style="max-width:150px;  max-height:200px;  width: auto;  height: auto;"src=@knjiga.slika  ></a>
+										<div class="basic-data"style="display: flex;flex-direction:column; margin-left:10px;margin-top:3%; border-left:2px solid black;height:70%;padding-left:5px" >
+											<span><a asp-page="Book" asp-route-id=@knjiga.knjigaID asp-route-zanr=@knjiga.zanr>@knjiga.naziv - @knjiga.autor</a></span>
+											<br>
+											<span>@knjiga.brstrana str.</span>
+											<br>
+											<span>@knjiga.zanr - @knjiga.pismo - @knjiga.godina</span>
 										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book1">
-											<input type="hidden" name="amount" value="100.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
+										
+								
 									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib7.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>marketing</h4>
-										<p>Niel Fontine</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 200.00</li>
-												<li>
-													$250.00
-												</li>
-											</ul>
+									@if (knjiga.kolicina>0)
+									{
+										<div style="margin-right:10px;margin-top:30px;"><span class="material-icons">done_outline</span></div>
+									}
+									else
+									{
+										<div style="margin-right:10px;margin-top:30px;"><span class="material-icons">close</span></div>
 
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book2">
-											<input type="hidden" name="amount" value="200.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib3.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>work from home</h4>
-										<p>Jose portilla</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 80.00</li>
-												<li>
-													$100.00
-												</li>
-											</ul>
+									}
 
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book3">
-											<input type="hidden" name="amount" value="80.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
 								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib6.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>online business</h4>
-										<p>Clayton Barton</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 120.00</li>
-												<li>
-													$130.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book4">
-											<input type="hidden" name="amount" value="120.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<!-- //row1 -->
-							<!-- row2 -->
-							<div class="col-md-3 product-men women_two">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib6.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>e-commerce</h4>
-										<p>Chris Haroun</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 125.00</li>
-												<li>
-													$165.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book5">
-											<input type="hidden" name="amount" value="125.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men women_two">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib2.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>kids</h4>
-										<p>Alex Even</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 70.00</li>
-												<li>
-													$100.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book6">
-											<input type="hidden" name="amount" value="70.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men women_two">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib5.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>media</h4>
-										<p>Alex Even</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 220.00</li>
-												<li>
-													$300.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book7">
-											<input type="hidden" name="amount" value="220.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men women_two">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib4.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>membership</h4>
-										<p>Hadilen de</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 210.00</li>
-												<li>
-													$300.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book8">
-											<input type="hidden" name="amount" value="210.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<!-- //row2 -->
-							<!-- row3 -->
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib7.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>marketing</h4>
-										<p>Scott Harris</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 180.00</li>
-												<li>
-													$220.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book9">
-											<input type="hidden" name="amount" value="180.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib1.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>online business</h4>
-										<p>Scott Harris</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 330.00</li>
-												<li>
-													$560.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book10">
-											<input type="hidden" name="amount" value="330.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib2.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>kids</h4>
-										<p>Cordebard</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 280.00</li>
-												<li>
-													$500.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book11">
-											<input type="hidden" name="amount" value="280.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="product-chr-info chr">
-									<div class="thumbnail">
-										<a href="single_product.html">
-											<img src="images/lib3.jpg" alt="">
-										</a>
-									</div>
-									<div class="caption">
-										<h4>work from home</h4>
-										<p>Cordebard</p>
-										<div class="matrlf-mid">
-											<ul class="rating">
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star yellow-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="fa fa-star gray-star" aria-hidden="true"></span>
-													</a>
-												</li>
-											</ul>
-											<ul class="price-list">
-												<li>$ 140.00</li>
-												<li>
-													$200.00
-												</li>
-											</ul>
-
-											<div class="clearfix"> </div>
-										</div>
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="chr_item" value="Book12">
-											<input type="hidden" name="amount" value="140.00">
-											<button type="submit" class="chr-cart pchr-cart">Add to cart
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-									</div>
-								</div>
-							</div>
+							
+							
+							}
+							
+							
 							<!-- //row3 -->
 							<div class="clearfix"></div>
 
 						</div>
-
+		<button style="margin-left:45%"id="load_more">Load more</button> <br> <br><br> <br>
 						<!-- //product-sec1 -->
 						<div class="clearfix"></div>
 					</div>
@@ -997,3 +324,69 @@
 			</div>
 		</div>
 		<!--// Shop -->
+		<script>
+				document.querySelector("#load_more").onclick=()=>
+				{
+					let categoryFilter;
+					document.querySelectorAll("#categories a" ).forEach((x)=>{
+						if(x.style.color=="black")
+						categoryFilter=x;
+
+						});
+				
+				
+					$.ajax({
+      						 method: "GET",
+							   data: {selektovaniZanr:categoryFilter.innerHTML},
+      						 url: '?handler=LoadMore', 
+							   beforeSend: function (xhr) {
+           						 xhr.setRequestHeader("XSRF-TOKEN",
+              					  $('input:hidden[name="__RequestVerificationToken"]').val());},
+      						 contentType: "application/json; charset=utf-8",
+     				 		 dataType: "json"
+  							 }).done(function (data) {
+      								if(data=="nemaVise")
+									  document.querySelector("#load_more").style.display="none";
+									  else
+									  {
+										  	data.forEach((knjiga)=>
+											  {
+												  
+												  	let node=`<div class=\"book\" style=\"display: flex;justify-content:space-between; width:100%;flex-direction:row; border:1px solid lime; margin-bottom:15px;border-radius: 5px;\">
+														<div style=\"display: flex;flex-direction:row;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+													<a href=\"Book?id=${knjiga["knjigaID"]}\"><img src=${knjiga["slika"]} width=\"159px" height=\"150px\" >
+													<div class=\"basic-data\"style=\"display: flex;flex-direction:column; margin-left:10px;margin-top:3%; border-left:2px solid black;height:70%;padding-left:5px\" >
+														<span><a href=\"Book?id=${knjiga["knjigaID"]}\" >${knjiga["naziv"]} - ${knjiga["autor"]}</a></span>
+														<br>
+														<span>${knjiga["brstrana"]} str.</span>
+														<br>
+														<span>${knjiga["zanr"]} - ${knjiga["pismo"]} - ${knjiga["godina"]}</span>
+														</div>
+														</div>`;
+														if(knjiga["kolicina"]>0)
+														node+=	`<div style=\"margin-right:10px;margin-top:30px;\"><span class=\"material-icons\">done_outline</span></div>`;
+														else
+														node+=`<div style=margin-right:10px;margin-top:30px;\"><span class=\"material-icons\">close</span></div>`;
+
+
+
+
+
+														document.querySelector(".product-sec1").innerHTML+=node;
+														
+
+
+
+											  })
+											  console.log(data);
+									  }
+
+									  
+
+
+
+
+
+									  });
+				}
+		</script>

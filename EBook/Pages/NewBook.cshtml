@@ -1,0 +1,162 @@
+﻿@page
+@model MyApp.Namespace.NewBookModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+</br>
+</br></br></br></br></br></br>
+
+
+<form method="POST" id="addBook"><h1>Unesite podatke o novoj knjizi</h1></br></br></br></br>
+<input type="hidden" asp-for="novaKnjiga.knjigaID"> 
+<span class="space-out">
+   <div class="labeled-input"> <label>Naziv:</label> <input type="text" asp-for="novaKnjiga.naziv"></div>
+   <div class="labeled-input"> <label>Autor:</label> <input type="text" asp-for="novaKnjiga.autor"> </div> 
+   <div class="labeled-input"> <label>Zanr:</label> <input type="text" asp-for="novaKnjiga.zanr"></div> 
+</span></br>
+<span class="space-out">
+     <div class="labeled-input"> <label>Broj Strana:</label><input   asp-for="novaKnjiga.brstrana"> </div>
+     <div class="labeled-input"> <label>Godina izdavanja:</label> <input  min="1" asp-for="novaKnjiga.godina"></div>
+    <div class="labeled-input"> <label>Količina:</label><input type="number"  min="0" asp-for="novaKnjiga.kolicina"></div>
+</span></br>
+
+<label>Izaberite pismo:</label>
+<select asp-for="novaKnjiga.pismo">
+    <option value="ćirilica">ćirilica</option>
+    <option value="latinica">latinica</option>
+</select></br></br></br>
+<div style="display: flex;flex-direction:row; justify-content:space-between; width:50%;">
+<div>
+<label>Unesite opis knjige:</label><br/>
+<textarea asp-for="novaKnjiga.opis" rows="10" cols="50"></textarea> <br><br><br>
+</div>
+
+<div style="margin-left: 10%;">
+<label>Import-ujte sliku knjige</label>
+<div class="bi-image">
+
+<input id="import-files" type="file" accept="image/*" />
+<img id="imported-img"src="">
+</div>						  
+     					
+</div>
+
+</div>
+				
+
+
+
+
+
+
+<input type="text" id="serialized-picture" asp-for="novaKnjiga.slika" hidden>
+<button type="submit">Add book</button>
+</form>
+<br><br><br><br><br><br>
+
+<script>
+    document.querySelector("#addBook").onsubmit=()=>{
+        document.getElementById("serialized-picture").value=document.querySelector("#imported-img").src;
+  
+
+    }
+    window.onload = function(){
+  
+    //Check File API support
+    if(window.File && window.FileList && window.FileReader)
+    {
+        var filesInput = document.getElementById("import-files");
+        
+        filesInput.addEventListener("change", function pictureNotificationMessage(event){
+            file=event.target.files[0];
+            var picReader = new FileReader();
+            picReader.fileName=file.name;
+            picReader.readAsDataURL(file);
+            picReader.addEventListener("load",function(event){
+         
+            let imgElement=document.querySelector("#imported-img");
+              imgElement.style.width="300px";
+                 imgElement.style.height="300px";
+                 imgElement.src=event.target.result; 
+               
+              
+            });
+
+        
+		});      
+
+	}/*
+    else
+    {
+        console.log("Your browser does not support File API");
+    }
+}
+
+					function makeMeFileApiPromise(index,output,files,event,filesInput)
+					{
+						return new Promise((resolve,reject)=>
+						{
+
+					
+						output.parentElement.style.display="table";
+
+                var file = files[index];
+				
+				if(!file.type.match('image'))
+                  {
+					  alert("Picture is not valid!")
+					  resolve(".");
+						return;
+					  
+
+				  }           
+                var picReader = new FileReader();
+				picReader.fileName=file.name;
+                
+                picReader.addEventListener("load",function(event){
+                    
+                    var picFile = event.target;
+				
+                    
+                  
+					
+					
+					
+
+					let td=document.createElement("td");
+					let img=document.createElement("img");
+					img.width=150;
+					img.height=100;
+					img.src=picFile.result;
+					
+					td.appendChild(img);
+					tr.appendChild(td);
+
+				
+
+				 
+					
+				
+					tr.querySelector("i").onclick=function removePictureAction()
+					{
+						output.removeChild(tr);
+						makeOneChecked();
+						let currImported=document.querySelectorAll(".imported-picture").length;
+						if(currImported==0)
+							{output.parentElement.style.display="none";
+								alertUser("Import 4-6 pictures");
+							
+							}
+					
+						resolve(".")
+				});
+
+
+				picReader.readAsDataURL(file)
+
+
+					}*/
+    }
+				</script>

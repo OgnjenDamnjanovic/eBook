@@ -12,5 +12,7 @@ namespace EBook.Model
         public string knjigaID;
         public DateTime datum;
         public string status;
+        public string nazivknjige;
+        public string zanrknjige;
     }
 }

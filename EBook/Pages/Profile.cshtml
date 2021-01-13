@@ -1,4 +1,238 @@
 ﻿@page
-@model MyApp.Namespace.ProfileModel
+@model EBook.Pages.ProfileModel
 @{
 }
+<head>
+    <title>eBook | Profile</title>
+</head>
+
+<div class="innerf-pages section">
+	<div class="container">
+        <div style="margin-top:50px;"class="tabelaRez-info">
+            <form method="post" class="rez-tabela">
+                @if(Model.korisnik.tip==0)
+                {
+                    <h4 class="predstojece-rez">Reservations</h4>
+                    @if(Model.rezervacije.Count==0)
+                    {
+                        <label class="nema-rez">There are no reservations!</label>
+                    }
+                    else
+                    {
+                        <div style="overflow-y:scroll; height:500px;">
+                        <table id="tabelaRez" class="table" style="width:95%;">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Genre</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var r in @Model.rezervacije)
+                                {
+                                    <tr>
+                                        <td>@r.knjigaID</td>
+                                        <td>Zanr</td>
+                                        <td>@r.datum.ToString("dd.MM.yyyy.")</td>
+                                        <td>@r.status</td>
+                                        @if(r.status=="Aktivno"){
+                                            <td><button class="otkaziRez" asp-route-id="@r.rezervacijaID" asp-route-kId="@r.korisnikID" asp-page-handler="ObrisiRez" onclick="return confirm('Are you sure you want to cancel this reservation?');">Cancel reservation</button></td>}
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        </div>
+                    }
+                }
+            </form>
+        <div>
+        <div>
+            <button id="rez">Change profile informations</button>
+        </div>
+        <div class="reg" style="display:none; margin-top:30px; margin-bottom:30px;">
+	  	<form id="signupForm1" method="post" action="" style="display:flex; flex-direction:row;  justify-content: space-between;"> 
+			<input id="sifraSakrivena" type="hidden" value="@Model.korisnik.sifra">
+			<div class="register-top-grid">
+				<h3 style="margin-bottom:20px;">PERSONAL INFORMATION</h3>
+				<div class="tekst">
+					<span>First Name</span>
+					<input type="text" id="firstname" name="firstname" value="@Model.korisnik.ime" disabled/>
+				</div>
+				<div class="tekst">
+					<span>Last Name</span>
+					<input type="text"  id="lastname" name="lastname" value="@Model.korisnik.prezime" disabled/>
+				</div>
+				<div class="tekst" id="register-form-email-c">
+					<span>Email Address</span>
+					<input style="width:300px;"id="email" name="email" type="text" value="@Model.korisnik.email" disabled> 
+					<label class="error error-hidden" style="visibility: hidden;">This field is required.</label>
+				</div>
+                <label class="checkbox1"><input type="checkbox" id="dugmePromeniSifru" onclick="changePassButtonText()"><i> </i><label for="dugmePromeniSifru" class="register-cb-label">Change password</label></label>
+            </div>
+			
+            <div class="register-bottom-grid">
+	            <h3 style="margin-bottom:20px;">LOGIN INFORMATION</h3>
+	            <div class="tekst">
+		            <span>Old Password<label>*</label></span>
+		            <input type="password" asp-for="password" id="password" name="password" disabled="true">
+		            <label class="error" style="visibility: hidden;">This field is required.</label>
+	            </div>
+	            <div class="tekst">
+		            <span>New Password<label>*</label></span>
+		            <input type="password" asp-for="newPassword" id="newPassword" name="newPassword" disabled="true">
+		            <label class="error" style="visibility: hidden;">This field is required.</label> 
+	            </div>
+                <div class="clearfix"> </div>
+                <div style="display:flex; flex-direction:row;">
+			        <button type="submit" class="register-but1" asp-page-handler="Sacuvaj">SAVE</button>
+                    <a id="rez1" style="display:block;">Cancel changing</a>
+                </div>
+			    <div class="clearfix"> </div>
+            </div>
+        </form>
+    </div>
+    
+    </div>
+</div>
+<script src="js/jquery-2.2.3.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#rez").click(function(){
+            $(".reg").css("display","block");
+            $("#rez").css("display","none");
+            $("#rez1").css("display","block");
+        });
+        $("#rez1").click(function(){
+            $(".reg").css("display","none");
+            $("#rez").css("display","block");
+            $("#rez1").css("display","none");
+        });
+    });
+    function changePassButtonText()
+	{
+		let pass = document.querySelector("#password");
+		let npass = document.querySelector("#newPassword");
+		let dugme = document.querySelector("#dugmePromeniSifru");
+		if(dugme.checked)
+		{
+			pass.disabled=false;
+			npass.disabled=false;
+		}
+		else
+		{
+			pass.disabled=true;
+			npass.disabled=true;
+			pass.value="";
+			npass.value="";
+			pass.parentElement.querySelector(".error").innerHTML="";
+			npass.parentElement.querySelector(".error").innerHTML="";
+		}
+	}
+
+	function isNullOrWhitespace( input ) {
+		if (typeof input === 'undefined' || input == null) 
+			return true;
+		let p=input.replace(/\s/g, '').length < 1;
+		return p;
+	}
+	function emailError() {
+		let email=document.querySelector("#email");
+		if(validateEmail(email.value))
+		{
+			email.parentElement.querySelector(".error").style.visibility="hidden";
+			return false;
+		}
+		else
+		{
+			email.parentElement.querySelector(".error").style.visibility="visible";
+			return true;
+		}
+	}
+	function passwordError(passID) {
+		let pass=document.querySelector("#password");
+		let cpass=document.querySelector("#newPassword");
+		if(document.querySelector("#"+passID).value==""||document.querySelector("#"+passID).value.length<5)
+		{	
+			document.querySelector("#"+passID).parentElement.querySelector(".error").innerHTML="Password must be at least 5 characters long";	
+			document.querySelector("#"+passID).parentElement.querySelector(".error").style.visibility="visible";
+			return true;
+		}
+		else
+		{
+			pass.parentElement.querySelector(".error").innerHTML="Password must be at least 5 characters long";	
+			pass.parentElement.querySelector(".error").style.visibility="hidden";
+			cpass.parentElement.querySelector(".error").innerHTML="Password must be at least 5 characters long";	
+			cpass.parentElement.querySelector(".error").style.visibility="hidden";
+			return false;
+		}
+	}
+	function passwordError2(passID)
+	{
+		let pass=document.querySelector("#password");
+		let sifra = document.querySelector("#sifraSakrivena");
+		if(document.querySelector("#"+passID).value!=sifra.value)
+		{
+			document.querySelector("#"+passID).parentElement.querySelector(".error").innerHTML="The old password is incorrect!";	
+			document.querySelector("#"+passID).parentElement.querySelector(".error").style.visibility="visible";
+			return true;
+		}
+		else
+		{
+			pass.parentElement.querySelector(".error").style.visibility="hidden";
+			return false;
+		}
+	}
+	document.addEventListener("DOMContentLoaded", function validateRegisterForm(event){			
+		element=document.querySelector("#email");
+		element.onfocus=function()
+		{	
+			this.onblur=()=>{ emailError();}
+		}
+		element.oninput=function(e)
+		{
+			emailError();
+			element.parentElement.querySelectorAll("label")[1].style.display="none";
+		}
+		element=document.querySelector("#password");
+		element.onfocus=function()
+		{	
+			this.onblur=()=>{ passwordError2("password");}
+		}
+		element.oninput=function(e)
+		{
+			passwordError2("password");
+		}  
+		element=document.querySelector("#newPassword");
+		element.onfocus=function()
+		{	
+			this.onblur=()=>{ passwordError("newPassword");}
+		}
+		element.oninput=function(e)
+		{
+			passwordError("newPassword");
+		}  
+		document.querySelector("#signupForm1").onsubmit=()=>
+		{
+			let error=false;
+						
+			if(emailError())
+				error=true;
+			if(document.querySelector("#dugmePromeniSifru").checked)
+			{			
+				if(passwordError2("password"))
+					error=true;
+					
+				if(passwordError("newPassword"))
+					error=true;
+			}
+			if(error)
+			{
+				return false;
+			}
+			return true;
+		}
+	});
+</script>

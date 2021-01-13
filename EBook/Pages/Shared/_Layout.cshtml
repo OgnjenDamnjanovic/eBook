@@ -39,6 +39,7 @@
             <div class="main-nav">
                 <div class="container">
                     <a asp-page="/Index"><img src="images/logo.png"/></a>
+                    <!--<h4 class="top-message">@Model.Message</h4> -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-ex1-collapse nav-right"  style="margin-top:10px;">
                         <ul class="nav navbar-nav navbar-left cl-effect-15">
@@ -58,12 +59,20 @@
                             <li>
                                 <a asp-page="/Contact">Contact</a>
                             </li>
+                            @if(Model.Message!=null)
+                            {
                             <li>
+                                <a asp-page="/Index" asp-page-handler="Logout">Logout</a>
+                            </li>
+                            }
+                            else
+                            {
+                                <li>
                                 <a asp-page="/Login" title="SignIn & SignUp">
                                     <span class="fa fa-user nav-icon" aria-hidden="true"></span>
                                 </a>
                             </li>
-
+                            }
                         </ul>
                         <!-- search-bar -->
                         <div class="search-bar-agileits">
@@ -78,17 +87,19 @@
                                 <!-- cd-header-buttons -->
                             </div>
                             <div id="cd-search" class="cd-search">
-                                <form action="#" method="post">
-                                    <input name="Search" type="search" placeholder="Type and Hit Enter...">
+                                <form asp-page="/Library" asp-route-id="@Model.SearchBook" method="get">
+                                    <input name="SearchBook" type="search" placeholder="Type and Hit Enter...">
                                 </form>
                             </div>
                         </div>
                         <!-- //search-bar ends here -->
                     </div>
                     <!-- /.navbar-collapse -->
+                    <h4>@Model.Message</h4>
                     <div class="clearfix"></div>
                 </div>
                 <!-- /.container -->
+                
             </div>
         </nav>
     </div>
@@ -102,27 +113,8 @@
         <div class="footer-bottom section">
             <div class="container">
                 <!-- newsletter -->
-                <div class="subscribe-main section-w3layouts text-center">
-                    <h4 class="rad-txt">
-                        <span class="abtxt1">keep yourself</span>
-                        <span class="abtext">updated</span>
-                    </h4>
-                    <h5>subscribe to our newsletter to stay up-to-date with our projects.</h5>
-                    <div class="subscribe-form">
-                        <form action="#" method="post" class="subscribe_form">
-                            <div class="email-news">
-                                <input type="email" placeholder="Email" required="">
-                            </div>
-                            <div class="sub-news">
-                                <input type="submit" value="subscribe">
-                            </div>
-                        </form>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p>We respect your privacy.No spam ever!</p>
-                </div>
-                <!-- //newsletter ends here -->
-                <!-- footer grids-->
+                
+                
                 <div class="footer-cpy">
                     <!-- footer-grid1 -->
                     <div class="col-md-3 col-sm-6 footer-logo">

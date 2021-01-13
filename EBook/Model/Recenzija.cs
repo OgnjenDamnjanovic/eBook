@@ -10,6 +10,9 @@ namespace EBook.Model
         public string korisnikID;
         public string knjigaID;
         public string komentar;
-        public int ocena;
+        public float ocena;
+        public string nazivknjige;
+        public string zanrknjige;
+        public string opisknjige;
     }
 }
