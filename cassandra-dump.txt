@@ -7,13 +7,76 @@ CREATE TABLE "EBook"."Knjiga" (
     brstrana text,
     godina text,
     kolicina int,
-	pismo text,
-	slika text,
-	jezik text,
+    pismo text,
+    slika text,
+    jezik text,
     PRIMARY KEY (zanr, "knjigaID")
     );
-	
-	
+
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Putopisi', '1', 'Bil Brajson', '288', '2004', 3, 'Ni ovde, ni tamo', 'Brajson je zanosno provokativan... istovremeno tako duhovit i iskren da zasluzuje ako ne da mu se oprosti, a ono makar da mu se progleda kroz prste zbog toga sto je mnogima stao na zulj.', 'Latinica','images/Library/1.jpg','engleski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Autobiografija', '2', 'Jurij Gagarin', '280', '2020', 2, 'Put do zvezda', 'U autobiografiji Put do zvezda Gagarin pise o detinjstvu provedenom pod nacistickom okupacijom, o skolovanju za livca a kasnije i vojnog pilota, o ljubavi prema domovini i posvecenosti tadasnjoj Komunistickoj partiji i, konacno, o pripremama i prvom letu coveka u svemir.', 'Latinica','images/Library/2.jpg','engleski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Autobiografija', '3', 'Elton Dzon', '384', '2020', 3, 'Ja', 'Ovo nije knjiga o sokantnim detaljima koji su dospevali na naslovne stranice magazina vec o mukotrpnom putu do spoznaje o svom zivotu.', 'Latinica','images/Library/3.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Autobiografija', '4', 'Fil Najt', '464', '2019', 10, 'Umetnost pobede', 'Umetnost pobede vise lici na Gospodara prstenova nego na memoare nekog mogula i cita se kao najbolja avanturisticka prica o momcima koji se neprestano srecu sa izazovima.', 'Latinica','images/Library/4.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Autobiografija', '5', 'Goran Markovic', '184', '2020', 1, 'Češka škola ne postoji', 'O svojim studijama, kolegama i uzbudljivom pocetku filmske karijere na cuvenoj praskoj filmskoj akademiji u vreme "praskog proleca" Goran Markovic govori vec prepoznatljivim recima kojima se odlikuje njegova uvek intrigantna proza: pitko, jednostavno, duhovito i na mahove dramaticno.', 'Cirilica','images/Library/5.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Muzika', '6', 'Mik Vol', '334', '2020', 2, 'Dva su jahaca prilazila', 'Dva su jahaca prilazila je psihodelicno i kaleidoskopsko istrazivanje zivota i smrti Dzimija Hendriksa – i putovanje u mracno srce sezdesetih.', 'Latinica','images/Library/6.jpg','nemacki');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Muzika', '7', 'Rej Konoli', '424', '2020', 4, 'Biti Elvis', 'Temeljno i bespostedno, Biti Elvis istrazuje neumerenost i nerazumnost koje prate mit o Elvisu, slaveci na kraju njegovu besmrtnost.', 'Cirilica','images/Library/7.jpg','bugarski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Muzika', '8', 'Dusan Vesic', '384', '2020', 1, 'Bunt dece socijalizma', 'Knjigom Bunt dece socijalizma o prvoj generaciji bendova novog talasa Dusan Vesic zaokruzuje trilogiju o najvaznijim momentima jugoslovenske rok kulture.', 'Latinica','images/Library/8.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '9', 'Fredrik Bakman', '384', '2020', 4, 'Uznemireni ljudi', 'Iako cete se uglavnom grohotom smejati dok budete citali Uznemirene ljude, to je prica o ljudima koji pate i ne znaju sta da rade sa svojim bolom.', 'Latinica','images/Library/9.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '10', 'Mark-Uve Kling', '344', '2020', 6, 'Kvalitilend', 'Klingova ostroumna zapazanja usmerena su na ekonomiju, zakon, ksenofobiju, ljudske odnose, bezbednost i vladu. On ne stedi nikoga i sa divnom brutalnoscu otkriva koliko je Kvalitilend blizu nasoj stvarnosti.', 'Latinica','images/Library/10.jpg','nemacki');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '11', 'Predrag Mitrovic', '198', '2020', 7, 'Pun pansion', 'Bilo jednom u Urgentnom centru.', 'Cirilica','images/Library/11.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '12', 'Bil Brajson', '328', '2018', 3, 'Zivot i doba Malog Groma', 'Iz pera jednog od najomiljenijih svetskih pisaca i autora bestselera New York Timesa, ovo je zivo, nostalgicno i urnebesno prisecanje na odrastanje pedesetih godina dvadesetog veka.', 'Cirilica','images/Library/12.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '13', 'Marko Brakovic', '208', '2018', 3, 'Ljudski aparat', 'Uvazeni beogradski psihoterapeut Predrag Petrovic mora da obezbedi opstanak svoje kcerke u Kanadi i neophodan mu je novac. U takvoj situaciji odlucuje da prvi put u karijeri pocne da gostuje i u TV emisijama sumnjivog kvaliteta.', 'Cirilica','images/Library/13.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Komedija', '14', 'Sofi Kinsela', '392', '2018', 1, 'Iznenadi me!', 'Na svoj prepoznatljiv nacin, Kinsela u svom novom delu predstavlja niz neobicnih i zabavnih likova... i neprestano nas zasmejava.', 'Ostalo','images/Library/14.jpg','Madjarski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Istorija', '15', 'Dzek Ferveder', '416', '2021', 3, 'Dobrovoljac', 'Pretacuci svedocenje Pileckog o gnusnim zločinima u snaznu prozu nezaustavljivog zamaha, Ferveder je stvorio izvanrednu biografiju jednog tajnog ratnog junaka i izuzetan doprinos istoriji Holokausta.', 'Cirilica','images/Library/15.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Sport', '16', 'Novak Djokovic', '192', '2013', 5, 'Serviraj za pobedu', 'Cetrnaestodnevni plan bezglutenske ishrane za vrhunska fizicka dostignuca i mentalnu snagu.', 'Cirilica','images/Library/16.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Sport', '17', 'Vladimir Stankovic', '366', '2014', 4, 'Montevideo, Bog te video!', 'Jedinstvena prica o okolnostima pod kojima su srpski fudbaleri u jugoslovenskim dresovima 1930. godine ucestvovali na Svetskom prvenstvu u Urugvaju.', 'Cirilica','images/Library/17.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Sport', '18', 'Vladimir Stankovic', '364', '2015', 1, 'Kos po kos', 'Istorija ucesca Jugoslavije/Srbije na evropskim prvenstvima.', 'Cirilica','images/Library/18.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Drama', '19', 'Momo Kapor', '304', '2020', 3, 'Ada', 'Roman Mome Kapora Ada, prvi put objavljen davne 1977. godine u biblioteci „Hit“, vrlo je brzo doziveo brojna izdanja i na taj nacin potvrdio veliku popularnost ovog autora.', 'Cirilica','images/Library/19.jpg','srpski');
+
+INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo,slika,jezik) VALUES 
+('Fantastika', '20', 'Dzo Aberkrombi', '560', '2020', 7, 'Malo mrznje', 'Malo mrznje je pobuna protiv pobune koja uspeva da ne postane konvencionalna. To je prica o sazrevanju koje namerno izbegava zrelost i mudrost. Pripovedanje koje je stilski pod uticajem video-igara, filma i televizije koliko i knjizevnosti.', 'Ostalo','images/Library/20.jpg','finski');
+
+
+
+
 CREATE TABLE "EBook".korisnik (
     korisnikid text,
     email text,
@@ -26,98 +89,6 @@ CREATE TABLE "EBook".korisnik (
     tip int,
     PRIMARY KEY (email, korisnikid)
     );
-	
-
-CREATE TABLE "EBook"."Rezervacija"(
-    "rezervacijaID" text,
-    "korisnikID" text,
-    "knjigaID" text,
-    datum timestamp,
-    status text,
-	nazivknjige text,
-	zanrknjige text,
-    PRIMARY KEY ("korisnikID", "rezervacijaID")
-);
-
-
-CREATE TABLE "EBook"."Recenzija" (
-    "recenzijaID" text,
-    "korisnikID" text,
-    "knjigaID" text,
-    komentar text,
-    ocena float,
-	nazivknjige text,
-	zanrknjige text,
-	opisknjige text,
-    PRIMARY KEY ("knjigaID","korisnikID")
-    );
-
-
-
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Putopisi', '1', 'Bil Brajson', '288', '2004', 3, 'Ni ovde, ni tamo', 'Brajson je zanosno provokativan... istovremeno tako duhovit i iskren da zasluzuje ako ne da mu se oprosti, a ono makar da mu se progleda kroz prste zbog toga sto je mnogima stao na zulj.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Autobiografija', '2', 'Jurij Gagarin', '280', '2020', 2, 'Put do zvezda', 'U autobiografiji Put do zvezda Gagarin pise o detinjstvu provedenom pod nacistickom okupacijom, o skolovanju za livca a kasnije i vojnog pilota, o ljubavi prema domovini i posvecenosti tadasnjoj Komunistickoj partiji i, konacno, o pripremama i prvom letu coveka u svemir.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Autobiografija', '3', 'Elton Dzon', '384', '2020', 3, 'Ja', 'Ovo nije knjiga o sokantnim detaljima koji su dospevali na naslovne stranice magazina vec o mukotrpnom putu do spoznaje o svom zivotu.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Autobiografija', '4', 'Fil Najt', '464', '2019', 10, 'Umetnost pobede', 'Umetnost pobede vise lici na Gospodara prstenova nego na memoare nekog mogula i cita se kao najbolja avanturisticka prica o momcima koji se neprestano srecu sa izazovima.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Autobiografija', '5', 'Goran Markovic', '184', '2020', 1, 'Češka škola ne postoji', 'O svojim studijama, kolegama i uzbudljivom pocetku filmske karijere na cuvenoj praskoj filmskoj akademiji u vreme "praskog proleca" Goran Markovic govori vec prepoznatljivim recima kojima se odlikuje njegova uvek intrigantna proza: pitko, jednostavno, duhovito i na mahove dramaticno.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Muzika', '6', 'Mik Vol', '334', '2020', 2, 'Dva su jahaca prilazila', 'Dva su jahaca prilazila je psihodelicno i kaleidoskopsko istrazivanje zivota i smrti Dzimija Hendriksa – i putovanje u mracno srce sezdesetih.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Muzika', '7', 'Rej Konoli', '424', '2020', 4, 'Biti Elvis', 'Temeljno i bespostedno, Biti Elvis istrazuje neumerenost i nerazumnost koje prate mit o Elvisu, slaveci na kraju njegovu besmrtnost.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Muzika', '8', 'Dusan Vesic', '384', '2020', 1, 'Bunt dece socijalizma', 'Knjigom Bunt dece socijalizma o prvoj generaciji bendova novog talasa Dusan Vesic zaokruzuje trilogiju o najvaznijim momentima jugoslovenske rok kulture.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '9', 'Fredrik Bakman', '384', '2020', 4, 'Uznemireni ljudi', 'Iako cete se uglavnom grohotom smejati dok budete citali Uznemirene ljude, to je prica o ljudima koji pate i ne znaju sta da rade sa svojim bolom.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '10', 'Mark-Uve Kling', '344', '2020', 6, 'Kvalitilend', 'Klingova ostroumna zapazanja usmerena su na ekonomiju, zakon, ksenofobiju, ljudske odnose, bezbednost i vladu. On ne stedi nikoga i sa divnom brutalnoscu otkriva koliko je Kvalitilend blizu nasoj stvarnosti.', 'Latinica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '11', 'Predrag Mitrovic', '198', '2020', 7, 'Pun pansion', 'Bilo jednom u Urgentnom centru.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '12', 'Bil Brajson', '328', '2018', 3, 'Zivot i doba Malog Groma', 'Iz pera jednog od najomiljenijih svetskih pisaca i autora bestselera New York Timesa, ovo je zivo, nostalgicno i urnebesno prisecanje na odrastanje pedesetih godina dvadesetog veka.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '13', 'Marko Brakovic', '208', '2018', 3, 'Ljudski aparat', 'Uvazeni beogradski psihoterapeut Predrag Petrovic mora da obezbedi opstanak svoje kcerke u Kanadi i neophodan mu je novac. U takvoj situaciji odlucuje da prvi put u karijeri pocne da gostuje i u TV emisijama sumnjivog kvaliteta.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Komedija', '14', 'Sofi Kinsela', '392', '2018', 1, 'Iznenadi me!', 'Na svoj prepoznatljiv nacin, Kinsela u svom novom delu predstavlja niz neobicnih i zabavnih likova... i neprestano nas zasmejava.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Istorija', '15', 'Dzek Ferveder', '416', '2021', 3, 'Dobrovoljac', 'Pretacuci svedocenje Pileckog o gnusnim zločinima u snaznu prozu nezaustavljivog zamaha, Ferveder je stvorio izvanrednu biografiju jednog tajnog ratnog junaka i izuzetan doprinos istoriji Holokausta.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Sport', '16', 'Novak Djokovic', '192', '2013', 5, 'Serviraj za pobedu', 'Cetrnaestodnevni plan bezglutenske ishrane za vrhunska fizicka dostignuca i mentalnu snagu.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Sport', '17', 'Vladimir Stankovic', '366', '2014', 4, 'Montevideo, Bog te video!', 'Jedinstvena prica o okolnostima pod kojima su srpski fudbaleri u jugoslovenskim dresovima 1930. godine ucestvovali na Svetskom prvenstvu u Urugvaju.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Sport', '18', 'Vladimir Stankovic', '364', '2015', 1, 'Kos po kos', 'Istorija ucesca Jugoslavije/Srbije na evropskim prvenstvima.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Drama', '19', 'Momo Kapor', '304', '2020', 3, 'Ada', 'Roman Mome Kapora Ada, prvi put objavljen davne 1977. godine u biblioteci „Hit“, vrlo je brzo doziveo brojna izdanja i na taj nacin potvrdio veliku popularnost ovog autora.', 'Cirilica');
-
-INSERT INTO "EBook"."Knjiga" (zanr,"knjigaID",autor,brstrana,godina,kolicina,naziv,opis,pismo) VALUES 
-('Fantastika', '20', 'Dzo Aberkrombi', '560', '2020', 7, 'Malo mrznje', 'Malo mrznje je pobuna protiv pobune koja uspeva da ne postane konvencionalna. To je prica o sazrevanju koje namerno izbegava zrelost i mudrost. Pripovedanje koje je stilski pod uticajem video-igara, filma i televizije koliko i knjizevnosti.', 'Cirilica');
-
-
-
-
 
 INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,prezime,sifra,tip) VALUES 
 ('1', 'Cara Dusana 15', 'Nis', '0652314567', 'ana.savic@elfak.rs', 'Ana', 'Savic', 'ana123', 0);
@@ -141,11 +112,31 @@ INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,pr
 ('7', 'Dragise Cvetkovica 10', 'Nis', '0603168145', 'laura.savic@elfak.rs', 'Laura', 'Savic', 'laura123', 1);
 
 INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,prezime,sifra,tip) VALUES 
-('8', 'Cara Dusana 37', 'Nis', '0603164589', 'sara.dzesika@outlook.com', 'Sara', 'Dzesika', 'sara123', 1);
+('8', 'Kraljevic Marka 21a', 'Nis', '0603164589', 'sara.dzesika@outlook.com', 'Sara', 'Dzesika', '1234', 1);
+
+INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,prezime,sifra,tip) VALUES 
+('9', 'Proleterska 5', 'Negotin', '0603168145', 'uros@elfak.rs', 'Uros', 'Ilic', '1234', 1);
+
+INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,prezime,sifra,tip) VALUES 
+('10', 'Milinkova 24', 'Negotin', '0603164589', 'ognjen@elfak.rs', 'Ognjen', 'Damnjanovic', '1234', 1);
+
+INSERT INTO "EBook"."korisnik" ("korisnikid",adresa,grad,brtelefona,email,ime,prezime,sifra,tip) VALUES 
+('11', 'Sremska 23', 'Nis', '060312312', 'nikola@elfak.rs', 'Nikola', 'Vidanovic', '1234', 1);
 
 
 
 
+CREATE TABLE "EBook"."Recenzija" (
+    "recenzijaID" text,
+    "korisnikID" text,
+    "knjigaID" text,
+    komentar text,
+    ocena float,
+    nazivknjige text,
+    zanrknjige text,
+    opisknjige text,
+    PRIMARY KEY ("knjigaID","korisnikID")
+    );
 
 INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",ocena,nazivknjige,zanrknjige,opisknjige) VALUES 
 ('1', '1', 'Odlicna knjiga, svaka preporuka!', '1', 5, 'Ni ovde, ni tamo', 'Putopisi', 'Brajson je zanosno provokativan... istovremeno tako duhovit i iskren da zasluzuje ako ne da mu se oprosti, a ono makar da mu se progleda kroz prste zbog toga sto je mnogima stao na zulj.');
@@ -187,13 +178,13 @@ INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",
 ('13', '13', 'Par detalja u knjizi mi se nisu dopala, zbog toga 4.', '1', 4, 'Ljudski aparat', 'Komedija', 'Uvazeni beogradski psihoterapeut Predrag Petrovic mora da obezbedi opstanak svoje kcerke u Kanadi i neophodan mu je novac. U takvoj situaciji odlucuje da prvi put u karijeri pocne da gostuje i u TV emisijama sumnjivog kvaliteta.');
 
 INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",ocena,nazivknjige,zanrknjige,opisknjige) VALUES 
-('15', '14', 'Nikome ne bih preporucio', '1', 1, 'Dobrovoljac', 'Istorija' 'Pretacuci svedocenje Pileckog o gnusnim zločinima u snaznu prozu nezaustavljivog zamaha, Ferveder je stvorio izvanrednu biografiju jednog tajnog ratnog junaka i izuzetan doprinos istoriji Holokausta.');
+('15', '14', 'Nikome ne bih preporucio', '1', 1, 'Dobrovoljac', 'Istorija','Pretacuci svedocenje Pileckog o gnusnim zločinima u snaznu prozu nezaustavljivog zamaha, Ferveder je stvorio izvanrednu biografiju jednog tajnog ratnog junaka i izuzetan doprinos istoriji Holokausta.');
 
 INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",ocena,nazivknjige,zanrknjige,opisknjige) VALUES 
 ('15', '15', 'Zamalo 5..', '2', 4, 'Dobrovoljac', 'Istorija', 'Pretacuci svedocenje Pileckog o gnusnim zločinima u snaznu prozu nezaustavljivog zamaha, Ferveder je stvorio izvanrednu biografiju jednog tajnog ratnog junaka i izuzetan doprinos istoriji Holokausta.');
 
 INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",ocena,nazivknjige,zanrknjige,opisknjige) VALUES 
-('16', '16', 'Za svaku pohvalu!!!!', '2', 5);
+('16', '16', 'Za svaku pohvalu!!!!', '2', 5,'Serviraj za pobedu','Sport', 'Cetrnaestodnevni plan bezglutenske ishrane za vrhunska fizicka dostignuca i mentalnu snagu.');
 
 INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",ocena,nazivknjige,zanrknjige,opisknjige) VALUES 
 ('16', '17', 'Svakome bih preporucio, odlicno!', '3', 5, 'Serviraj za pobedu', 'Sport', 'Cetrnaestodnevni plan bezglutenske ishrane za vrhunska fizicka dostignuca i mentalnu snagu.');
@@ -210,123 +201,133 @@ INSERT INTO "EBook"."Recenzija" ("knjigaID","recenzijaID",komentar,"korisnikID",
 
 
 
+CREATE TABLE "EBook"."Rezervacija"(
+    "rezervacijaID" text,
+    "korisnikID" text,
+    "knjigaID" text,
+    datum timestamp,
+    status text,
+    nazivknjige text,
+    zanrknjige text,
+    PRIMARY KEY ("korisnikID", "rezervacijaID")
+);
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '1', '2020-02-11 04:05+0000', '1', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '1', '2020-02-11 04:05+0000', '1', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '2', '2020-06-11 04:05+0000', '1', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '2', '2020-06-11 04:05+0000', '1', 'Realizovano','Malo mrznje', 'Fantastika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '3', '2020-07-11 04:05+0000', '2', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '3', '2020-07-11 04:05+0000', '2', 'Realizovano','Umetnost pobede', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('4', '4', '2020-02-10 04:05+0000', '3', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('4', '4', '2020-02-10 04:05+0000', '3', 'Realizovano', 'Ja', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '5', '2020-01-07 04:05+0000', '4', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '5', '2020-01-07 04:05+0000', '4', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('6', '6', '2020-02-07 04:05+0000', '7', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('6', '6', '2020-02-07 04:05+0000', '7', 'Realizovano','Umetnost pobede', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '7', '2020-03-11 04:05+0000', '8', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '7', '2020-03-11 04:05+0000', '8', 'Realizovano','Dobrovoljac', 'Istorija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '8', '2020-04-11 04:05+0000', '9', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '8', '2020-04-11 04:05+0000', '9', 'Realizovano', 'Ja', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '9', '2020-05-11 04:05+0000', '9', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '9', '2020-05-11 04:05+0000', '9', 'Realizovano','Malo mrznje', 'Fantastika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('4', '10', '2020-02-06 04:05+0000', '9', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('4', '10', '2020-02-06 04:05+0000', '9', 'Realizovano','Bunt dece socijalizma', 'Muzika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '11', '2020-03-03 04:05+0000', '11', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '11', '2020-03-03 04:05+0000', '11', 'Realizovano','Dobrovoljac', 'Istorija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('6', '12', '2020-07-11 04:05+0000', '13', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('6', '12', '2020-07-11 04:05+0000', '13', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '13', '2020-02-09 04:05+0000', '13', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '13', '2020-02-09 04:05+0000', '13', 'Realizovano', 'Ja', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '14', '2020-01-10 04:05+0000', '15', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '14', '2020-01-10 04:05+0000', '15', 'Realizovano','Bunt dece socijalizma', 'Muzika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '15', '2020-11-21 04:05+0000', '15', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '15', '2020-11-21 04:05+0000', '15', 'Realizovano','Umetnost pobede', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '16', '2020-11-29 04:05+0000', '16', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '16', '2020-11-29 04:05+0000', '16', 'Realizovano','Dobrovoljac', 'Istorija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '17', '2020-08-28 04:05+0000', '16', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '17', '2020-08-28 04:05+0000', '16', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '18', '2020-07-20 04:05+0000', '16', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '18', '2020-07-20 04:05+0000', '16', 'Realizovano','Dobrovoljac', 'Istorija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '19', '2020-05-06 04:05+0000', '16', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '19', '2020-05-06 04:05+0000', '16', 'Realizovano', 'Ja', 'Autobiografija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '20', '2020-05-04 04:05+0000', '20', 'Realizovano');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '20', '2020-05-04 04:05+0000', '20', 'Realizovano','Malo mrznje', 'Fantastika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '21', '2020-12-23 04:05+0000', '17', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '21', '2020-12-23 04:05+0000', '17', 'Aktivno', 'Pun pansion', 'Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '22', '2020-12-18 04:05+0000', '10', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '22', '2020-12-18 04:05+0000', '10', 'Aktivno', 'Pun pansion', 'Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('6', '23', '2020-12-20 04:05+0000', '10', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('6', '23', '2020-12-20 04:05+0000', '10', 'Aktivno', 'Biti Elvis', 'Muzika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '24', '2020-12-17 04:05+0000', '4', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '24', '2020-12-17 04:05+0000', '4', 'Aktivno', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '25', '2020-12-28 04:05+0000', '17', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '25', '2020-12-28 04:05+0000', '17', 'Aktivno','Dobrovoljac', 'Istorija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '26', '2021-01-02 04:05+0000', '7', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '26', '2021-01-02 04:05+0000', '7', 'Aktivno', 'Ni ovde, ni tamo', 'Putopisi');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '27', '2021-01-03 04:05+0000', '3', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '27', '2021-01-03 04:05+0000', '3', 'Aktivno', 'Ni ovde, ni tamo', 'Putopisi');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('4', '28', '2021-01-04 04:05+0000', '7', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('4', '28', '2021-01-04 04:05+0000', '7', 'Aktivno', 'Biti Elvis', 'Muzika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('1', '29', '2021-01-05 04:05+0000', '19', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('1', '29', '2021-01-05 04:05+0000', '19', 'Aktivno', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '30', '2020-12-21 04:05+0000', '19', 'Aktivno');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '30', '2020-12-21 04:05+0000', '19', 'Aktivno','Malo mrznje', 'Fantastika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('6', '31', '2020-07-08 04:05+0000', '1', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('6', '31', '2020-07-08 04:05+0000', '1', 'Isteklo', 'Ni ovde, ni tamo', 'Putopisi');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '32', '2020-08-10 04:05+0000', '2', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '32', '2020-08-10 04:05+0000', '2', 'Isteklo','Zivot i doba Malog Groma','Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('3', '33', '2020-09-09 04:05+0000', '3', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('3', '33', '2020-09-09 04:05+0000', '3', 'Isteklo', 'Ni ovde, ni tamo', 'Putopisi');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('4', '34', '2020-05-21 04:05+0000', '4', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('4', '34', '2020-05-21 04:05+0000', '4', 'Isteklo','Uznemireni ljudi', 'Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '35', '2020-05-22 04:05+0000', '6', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '35', '2020-05-22 04:05+0000', '6', 'Isteklo','Malo mrznje', 'Fantastika');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('6', '36', '2020-04-23 04:05+0000', '8', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('6', '36', '2020-04-23 04:05+0000', '8', 'Isteklo', 'Serviraj za pobedu', 'Sport');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('4', '37', '2020-10-23 04:05+0000', '10', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('4', '37', '2020-10-23 04:05+0000', '10', 'Isteklo','Zivot i doba Malog Groma','Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '38', '2020-08-19 04:05+0000', '11', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '38', '2020-08-19 04:05+0000', '11', 'Isteklo','Uznemireni ljudi', 'Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('2', '39', '2020-06-10 04:05+0000', '13', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('2', '39', '2020-06-10 04:05+0000', '13', 'Isteklo','Zivot i doba Malog Groma','Komedija');
 
-INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status) VALUES
-('5', '40', '2020-11-07 04:05+0000', '15', 'Isteklo');
+INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
+('5', '40', '2020-11-07 04:05+0000', '15', 'Isteklo','Zivot i doba Malog Groma','Komedija');

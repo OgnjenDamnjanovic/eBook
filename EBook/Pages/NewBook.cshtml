@@ -18,15 +18,22 @@
 </span></br>
 <span class="space-out">
      <div class="labeled-input"> <label>Broj Strana:</label><input   asp-for="novaKnjiga.brstrana"> </div>
-     <div class="labeled-input"> <label>Godina izdavanja:</label> <input  min="1" asp-for="novaKnjiga.godina"></div>
+     <div class="labeled-input"> <label>Godina izdavanja:</label> <input  asp-for="novaKnjiga.godina"></div>
     <div class="labeled-input"> <label>Količina:</label><input type="number"  min="0" asp-for="novaKnjiga.kolicina"></div>
 </span></br>
 
-<label>Izaberite pismo:</label>
-<select asp-for="novaKnjiga.pismo">
-    <option value="ćirilica">ćirilica</option>
-    <option value="latinica">latinica</option>
-</select></br></br></br>
+<span class="space-out" style="width: 29.4%;">
+     <div class="labeled-input"> <label>Izaberite pismo:</label><select asp-for="novaKnjiga.pismo">    <option value="Ćirilica">ćirilica</option> <option value="Latinica">latinica</option>     <option value="Ostalo">ostalo</option></select> </div>
+   <div class="labeled-input" > <label>Unesite jezik:</label> <input asp-for="novaKnjiga.jezik"></div>
+    
+</span></br>
+
+
+
+
+
+
+</br></br></br>
 <div style="display: flex;flex-direction:row; justify-content:space-between; width:50%;">
 <div>
 <label>Unesite opis knjige:</label><br/>
@@ -44,11 +51,6 @@
 </div>
 
 </div>
-				
-
-
-
-
 
 
 <input type="text" id="serialized-picture" asp-for="novaKnjiga.slika" hidden>
@@ -87,76 +89,6 @@
         
 		});      
 
-	}/*
-    else
-    {
-        console.log("Your browser does not support File API");
-    }
-}
-
-					function makeMeFileApiPromise(index,output,files,event,filesInput)
-					{
-						return new Promise((resolve,reject)=>
-						{
-
-					
-						output.parentElement.style.display="table";
-
-                var file = files[index];
-				
-				if(!file.type.match('image'))
-                  {
-					  alert("Picture is not valid!")
-					  resolve(".");
-						return;
-					  
-
-				  }           
-                var picReader = new FileReader();
-				picReader.fileName=file.name;
-                
-                picReader.addEventListener("load",function(event){
-                    
-                    var picFile = event.target;
-				
-                    
-                  
-					
-					
-					
-
-					let td=document.createElement("td");
-					let img=document.createElement("img");
-					img.width=150;
-					img.height=100;
-					img.src=picFile.result;
-					
-					td.appendChild(img);
-					tr.appendChild(td);
-
-				
-
-				 
-					
-				
-					tr.querySelector("i").onclick=function removePictureAction()
-					{
-						output.removeChild(tr);
-						makeOneChecked();
-						let currImported=document.querySelectorAll(".imported-picture").length;
-						if(currImported==0)
-							{output.parentElement.style.display="none";
-								alertUser("Import 4-6 pictures");
-							
-							}
-					
-						resolve(".")
-				});
-
-
-				picReader.readAsDataURL(file)
-
-
-					}*/
+	}
     }
 				</script>

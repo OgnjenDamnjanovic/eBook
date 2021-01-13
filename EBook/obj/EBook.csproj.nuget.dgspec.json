@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Napredne baze projekti\\Git\\EBook\\EBook.csproj": {}
+    "C:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\EBook.csproj": {}
   },
   "projects": {
-    "E:\\Napredne baze projekti\\Git\\EBook\\EBook.csproj": {
+    "C:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\EBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Napredne baze projekti\\Git\\EBook\\EBook.csproj",
+        "projectUniqueName": "C:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\EBook.csproj",
         "projectName": "EBook",
-        "projectPath": "E:\\Napredne baze projekti\\Git\\EBook\\EBook.csproj",
-        "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "E:\\Napredne baze projekti\\Git\\EBook\\obj\\",
+        "projectPath": "C:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\EBook.csproj",
+        "packagesPath": "C:\\Users\\MaYo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MaYo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "CassandraCSharpDriver": {
               "target": "Package",
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

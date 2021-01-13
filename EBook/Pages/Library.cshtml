@@ -287,9 +287,12 @@
 										<div class="basic-data"style="display: flex;flex-direction:column; margin-left:10px;margin-top:3%; border-left:2px solid black;height:70%;padding-left:5px" >
 											<span><a asp-page="Book" asp-route-id=@knjiga.knjigaID asp-route-zanr=@knjiga.zanr>@knjiga.naziv - @knjiga.autor</a></span>
 											<br>
-											<span>@knjiga.brstrana str.</span>
+											<span>@knjiga.brstrana str. - @knjiga.godina. god.</span>
 											<br>
-											<span>@knjiga.zanr - @knjiga.pismo - @knjiga.godina</span>
+											<span>@knjiga.zanr - @knjiga.jezik @if (@knjiga.pismo.CompareTo("Ostalo")!=0)
+											{
+												<label style="font-weight: normal;"> - @knjiga.pismo</label>
+											} </span>
 										</div>
 										
 								
@@ -351,16 +354,18 @@
 									  {
 										  	data.forEach((knjiga)=>
 											  {
-												  
+												  	let pismo=(knjiga["pismo"]=="Ostalo")?"":`- ${knjiga["pismo"]}`;
+													
+													
 												  	let node=`<div class=\"book\" style=\"display: flex;justify-content:space-between; width:100%;flex-direction:row; border:1px solid lime; margin-bottom:15px;border-radius: 5px;\">
 														<div style=\"display: flex;flex-direction:row;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
 													<a href=\"Book?id=${knjiga["knjigaID"]}\"><img src=${knjiga["slika"]} width=\"159px" height=\"150px\" >
 													<div class=\"basic-data\"style=\"display: flex;flex-direction:column; margin-left:10px;margin-top:3%; border-left:2px solid black;height:70%;padding-left:5px\" >
 														<span><a href=\"Book?id=${knjiga["knjigaID"]}\" >${knjiga["naziv"]} - ${knjiga["autor"]}</a></span>
 														<br>
-														<span>${knjiga["brstrana"]} str.</span>
+														<span>${knjiga["brstrana"]} str. - ${knjiga["godina"]}. god.</span>
 														<br>
-														<span>${knjiga["zanr"]} - ${knjiga["pismo"]} - ${knjiga["godina"]}</span>
+														<span>${knjiga["zanr"]} - ${knjiga["jezik"]} ${pismo}   </span>
 														</div>
 														</div>`;
 														if(knjiga["kolicina"]>0)

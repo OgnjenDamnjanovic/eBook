@@ -55,7 +55,7 @@ namespace MyApp.Namespace
 
 
                 String noviId = Cassandra.TimeUuid.NewId().ToString();
-                String query=$"insert into \"Knjiga\" (zanr, \"knjigaID\", autor, brstrana, godina, kolicina, naziv, opis, pismo, slika)  values ('{novaKnjiga.zanr}', '" + noviId +$"', '{novaKnjiga.autor}', '{novaKnjiga.brstrana}', '{novaKnjiga.godina}', {novaKnjiga.kolicina}, '{novaKnjiga.naziv}', '{novaKnjiga.opis}', '{novaKnjiga.pismo}','{novaKnjiga.slika}')";
+                String query=$"insert into \"Knjiga\" (zanr, \"knjigaID\", autor, brstrana, godina, kolicina, naziv, opis, pismo, slika, jezik)  values ('{novaKnjiga.zanr}', '" + noviId +$"', '{novaKnjiga.autor}', '{novaKnjiga.brstrana}', '{novaKnjiga.godina}', {novaKnjiga.kolicina}, '{novaKnjiga.naziv}', '{novaKnjiga.opis}', '{novaKnjiga.pismo}','{novaKnjiga.slika}','{novaKnjiga.jezik}')";
                
            
            session.Execute(query);

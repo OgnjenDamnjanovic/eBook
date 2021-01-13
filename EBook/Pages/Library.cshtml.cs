@@ -90,6 +90,7 @@ namespace MyApp.Namespace
                 knjiga.pismo = knjigaRaw["pismo"] != null ? knjigaRaw["pismo"].ToString() : string.Empty;
                 knjiga.slika = knjigaRaw["slika"] != null ? knjigaRaw["slika"].ToString() : string.Empty;
                 knjiga.zanr = knjigaRaw["zanr"] != null ? knjigaRaw["zanr"].ToString() : string.Empty;
+                knjiga.jezik = knjigaRaw["jezik"] != null ? knjigaRaw["jezik"].ToString() : string.Empty;
              
                 sveKnjige.Add(knjiga);
              
@@ -131,7 +132,7 @@ namespace MyApp.Namespace
              }
                 List<Knjiga> josKnjiga=new List<Knjiga>();
                        foreach(var knjigaRaw in knjigeRaw)
-                            {
+                            {       
                                 Knjiga knjiga = new Knjiga();
                                 knjiga.autor = knjigaRaw["autor"] != null ? knjigaRaw["autor"].ToString() : string.Empty;
                                 knjiga.brstrana = knjigaRaw["brstrana"] != null ? knjigaRaw["brstrana"].ToString() : string.Empty;
@@ -143,7 +144,8 @@ namespace MyApp.Namespace
                                 knjiga.pismo = knjigaRaw["pismo"] != null ? knjigaRaw["pismo"].ToString() : string.Empty;
                                 knjiga.slika = knjigaRaw["slika"] != null ? LoadImage(knjigaRaw["slika"].ToString()) : string.Empty;
                                 knjiga.zanr = knjigaRaw["zanr"] != null ? knjigaRaw["zanr"].ToString() : string.Empty;
-                            
+                                knjiga.jezik = knjigaRaw["jezik"] != null ? knjigaRaw["jezik"].ToString() : string.Empty;
+                                
                                 josKnjiga.Add(knjiga);
                             
                         }
