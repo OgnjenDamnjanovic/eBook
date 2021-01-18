@@ -4,27 +4,28 @@
 }
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <title>eBook | New book</title>
 </head>
 </br>
 </br></br></br></br></br></br>
 
 
-<form method="POST" id="addBook"><h1>Unesite podatke o novoj knjizi</h1></br></br></br></br>
+<form method="POST" id="addBook"><h1>Enter data about new book</h1></br></br></br></br>
 <input type="hidden" asp-for="novaKnjiga.knjigaID"> 
 <span class="space-out">
-   <div class="labeled-input"> <label>Naziv:</label> <input type="text" asp-for="novaKnjiga.naziv"></div>
-   <div class="labeled-input"> <label>Autor:</label> <input type="text" asp-for="novaKnjiga.autor"> </div> 
-   <div class="labeled-input"> <label>Zanr:</label> <input type="text" asp-for="novaKnjiga.zanr"></div> 
+   <div class="labeled-input"> <label>Name:</label> <input type="text" asp-for="novaKnjiga.naziv"></div>
+   <div class="labeled-input"> <label>Author:</label> <input type="text" asp-for="novaKnjiga.autor"> </div> 
+   <div class="labeled-input"> <label>Genre:</label> <input type="text" asp-for="novaKnjiga.zanr"></div> 
 </span></br>
 <span class="space-out">
-     <div class="labeled-input"> <label>Broj Strana:</label><input   asp-for="novaKnjiga.brstrana"> </div>
-     <div class="labeled-input"> <label>Godina izdavanja:</label> <input  asp-for="novaKnjiga.godina"></div>
-    <div class="labeled-input"> <label>Količina:</label><input type="number"  min="0" asp-for="novaKnjiga.kolicina"></div>
+     <div class="labeled-input"> <label>Number of pages:</label><input   asp-for="novaKnjiga.brstrana"> </div>
+     <div class="labeled-input"> <label>Year of release:</label> <input  asp-for="novaKnjiga.godina"></div>
+    <div class="labeled-input"> <label>Quantity:</label><input type="number"  min="0" asp-for="novaKnjiga.kolicina"></div>
 </span></br>
 
 <span class="space-out" style="width: 29.4%;">
-     <div class="labeled-input"> <label>Izaberite pismo:</label><select asp-for="novaKnjiga.pismo">    <option value="Ćirilica">ćirilica</option> <option value="Latinica">latinica</option>     <option value="Ostalo">ostalo</option></select> </div>
-   <div class="labeled-input" > <label>Unesite jezik:</label> <input asp-for="novaKnjiga.jezik"></div>
+     <div class="labeled-input"> <label>Choose letter:</label><select asp-for="novaKnjiga.pismo">    <option value="Ćirilica">ćirilica</option> <option value="Latinica">latinica</option>     <option value="Ostalo">ostalo</option></select> </div>
+   <div class="labeled-input" > <label>Enter language:</label> <input asp-for="novaKnjiga.jezik"></div>
     
 </span></br>
 
@@ -36,12 +37,12 @@
 </br></br></br>
 <div style="display: flex;flex-direction:row; justify-content:space-between; width:50%;">
 <div>
-<label>Unesite opis knjige:</label><br/>
+<label>Enter description:</label><br/>
 <textarea asp-for="novaKnjiga.opis" rows="10" cols="50"></textarea> <br><br><br>
 </div>
 
 <div style="margin-left: 10%;">
-<label>Import-ujte sliku knjige</label>
+<label>Import photo</label>
 <div class="bi-image">
 
 <input id="import-files" type="file" accept="image/*" />

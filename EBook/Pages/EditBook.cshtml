@@ -4,27 +4,28 @@
 }
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <title>eBook | Edit book</title>
 </head>
 </br>
 </br></br></br></br></br></br>
 
-<form method="POST"><button type="submit"  asp-page-handler="Obrisi" asp-route-id="@Model.zaEdit.knjigaID" asp-route-zanr="@Model.zaEdit.zanr"asp-route-slika="@Model.nazivSlike">Obrisi knjigu</button></form>
-<form method="POST" id="addBook"><h1>Unesite podatke o knjizi</h1></br></br></br></br>
+<form method="POST" style="margin-left:25px; margin-bottom:25px;"><button type="submit"  asp-page-handler="Obrisi" asp-route-id="@Model.zaEdit.knjigaID" asp-route-zanr="@Model.zaEdit.zanr"asp-route-slika="@Model.nazivSlike">Delete book</button></form>
+<form method="POST" id="addBook"><h1>Enter data about book</h1></br></br></br></br>
 <input type="hidden" asp-for="zaEdit.knjigaID"> 
 <span class="space-out">
-   <div class="labeled-input"> <label>Naziv:</label> <input type="text" asp-for="zaEdit.naziv"></div>
-   <div class="labeled-input"> <label>Autor:</label> <input type="text" asp-for="zaEdit.autor"> </div> 
-   <div class="labeled-input" style="visibility:hidden;"> <label>Zanr:</label> <input type="text" asp-for="zaEdit.zanr"></div> 
+   <div class="labeled-input"> <label>Name:</label> <input type="text" asp-for="zaEdit.naziv"></div>
+   <div class="labeled-input"> <label>Author:</label> <input type="text" asp-for="zaEdit.autor"> </div> 
+   <div class="labeled-input" style="visibility:hidden;"> <label>Genre:</label> <input type="text" asp-for="zaEdit.zanr"></div> 
 </span></br>
 <span class="space-out">
-     <div class="labeled-input"> <label>Broj Strana:</label><input   asp-for="zaEdit.brstrana"> </div>
+     <div class="labeled-input"> <label>Number of pager:</label><input   asp-for="zaEdit.brstrana"> </div>
      <div class="labeled-input"> <label>Godina izdavanja:</label> <input  asp-for="zaEdit.godina"></div>
-    <div class="labeled-input"> <label>Količina:</label><input type="number"  min="0" asp-for="zaEdit.kolicina"></div>
+    <div class="labeled-input"> <label>Quantity:</label><input type="number"  min="0" asp-for="zaEdit.kolicina"></div>
 </span></br>
 
 <span class="space-out" >
-     <div class="labeled-input" style="min-width: 176px;"> <label>Izaberite pismo:</label><select asp-for="zaEdit.pismo">    <option value="Ćirilica">ćirilica</option> <option value="Latinica">latinica</option>     <option value="Ostalo">ostalo</option></select> </div>
-   <div class="labeled-input" > <label>Unesite jezik:</label> <input asp-for="zaEdit.jezik"></div>
+     <div class="labeled-input" style="min-width: 176px;"> <label>Choose letter:</label><select asp-for="zaEdit.pismo">    <option value="Ćirilica">ćirilica</option> <option value="Latinica">latinica</option>     <option value="Ostalo">ostalo</option></select> </div>
+   <div class="labeled-input" > <label>Enter language:</label> <input asp-for="zaEdit.jezik"></div>
     <div class="labeled-input" style="visibility: hidden;"> <label>Slika preload:</label><input  id="serialized-picture" asp-for="zaEdit.slika"></div>
 </span></br>
 
@@ -36,12 +37,12 @@
 </br></br></br>
 <div style="display: flex;flex-direction:row; justify-content:space-between; width:50%;">
 <div>
-<label>Unesite opis knjige:</label><br/>
+<label>Enter description:</label><br/>
 <textarea asp-for="zaEdit.opis" rows="10" cols="50"></textarea> <br><br><br>
 </div>
 
 <div style="margin-left: 10%;">
-<label>Import-ujte sliku knjige</label>
+<label>Import photo</label>
 <div class="bi-image">
 
 <input id="import-files" type="file" accept="image/*" />

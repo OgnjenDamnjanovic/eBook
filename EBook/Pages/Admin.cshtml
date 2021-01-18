@@ -1,0 +1,256 @@
+﻿@page
+@model EBook.Pages.AdminModel
+@{
+}
+<head>
+    <title>eBook | Admin</title>
+</head>
+<div class="innerf-pages section">
+	<div class="container">
+        <div id = "informacija"></div>
+        <div style="margin-top:50px;"class="tabelaRez-info">
+            <div class="tab">
+                <button class="tablinks" onclick="openTable(event, 'Books')">Books</button>
+                <button class="tablinks" onclick="openTable(event, 'Reservations')">Reservations</button>
+                <button class="tablinks" onclick="openTable(event, 'Reviews')">Reviews</button>
+            </div>
+
+            <div id="Books" class="tabcontent">
+                <form method="post" class="rez-tabela">
+                        <h4 class="predstojece-rez">Books</h4>
+                        <button asp-page="/NewBook">Add book</button>
+                        @if(Model.knjige.Count==0)
+                        {
+                            <label class="nema-rez">There are no Books!</label>
+                        }
+                        else
+                        {
+                            <div style="overflow-y:scroll; height:500px;">
+                            <table id="tabelaRez" class="table" style="width:95%;">
+                                <thead>
+                                    <tr>
+                                        <th>Picture</th>
+                                        <th>Name</th>
+                                        <th>Genre</th>
+                                        <th>Author</th>
+                                        <th>Number of pages</th>
+                                        <th>Year of release</th>
+                                        <th>Language</th>
+                                        <th>Quantity</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var k in @Model.knjige)
+                                    {
+                                        <tr>
+                                            <td><a asp-page="/Book" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr"><img src="@k.slika" style="width:100px; height:100px;"></a></td>
+                                            <td>@k.naziv</td>
+                                            <td>@k.zanr</td>
+                                            <td>@k.autor</td>
+                                            <td>@k.brstrana</td>
+                                            <td>@k.godina</td>
+                                            <td>@k.jezik</td>
+                                            <td>@k.kolicina</td>
+                                            <td><button class="otkaziRez" asp-page="/EditBook" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr">Edit</button></td>
+                                            @if(k.kolicina>0){
+                                                <td><button class="otkaziRez" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr" asp-page-handler="Povecaj">+</button></td>
+                                                <td><button class="otkaziRez" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr" asp-page-handler="Smanji">-</button></td>
+                                                <td><button class="otkaziRez" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr" asp-page-handler="ObrisiKnjigu" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button></td>}
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            </div>
+                        }
+                </form>
+            </div>
+
+            <div id="Reservations" class="tabcontent">
+                <form method="post" class="rez-tabela">
+                        <h4 class="predstojece-rez">Reservations</h4>
+                        @if(Model.rezervacije.Count==0)
+                        {
+                            <label class="nema-rez">There are no reservations!</label>
+                        }
+                        else
+                        {
+                            <div style="overflow-y:scroll; height:500px;">
+                            <table id="tabelaRez" class="table" style="width:95%;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Genre</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var r in @Model.rezervacije)
+                                    {
+                                        <tr>
+                                            <td><a asp-page="/Book" asp-route-id="@r.knjigaID" asp-route-zanr="@r.zanrknjige">@r.nazivknjige</a></td>
+                                            <td>@r.zanrknjige</td>
+                                            <td>@r.korisnikID</td>
+                                            <td>@r.datum.ToString("dd.MM.yyyy.")</td>
+                                            <td>@r.status</td>
+                                            @if(r.status=="Na cekanju"){
+                                                <td><button class="otkaziRez" asp-route-id="@r.rezervacijaID" asp-route-kId="@r.korisnikID" asp-page-handler="ObrisiRez" onclick="return confirm('Are you sure you want to cancel this reservation?');">Cancel reservation</button></td>
+                                                <td><button class="otkaziRez" asp-route-id="@r.rezervacijaID" asp-route-kId="@r.korisnikID" asp-page-handler="StatusAktivno" onclick="return confirm('Are you sure you want to set status to Aktivno?');">Aktivno</button></td>}
+                                            @if(r.status=="Aktivno"){
+                                                <td><button class="otkaziRez" asp-route-id="@r.rezervacijaID" asp-route-kId="@r.korisnikID" asp-page-handler="StatusRealizovano" onclick="return confirm('Are you sure you want to set status to Realizovano?');">Realizovano</button></td>
+                                            }
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            </div>
+                        }
+                </form>
+            </div>
+
+            <div id="Reviews" class="tabcontent">
+                <form method="post" class="rez-tabela">
+                        <h4 class="predstojece-rez">Reviews</h4>
+                        @if(Model.recenzije.Count==0)
+                        {
+                            <label class="nema-rez">There are no reviews!</label>
+                        }
+                        else
+                        {
+                            <div style="overflow-y:scroll; height:500px;">
+                            <table id="tabelaRez" class="table" style="width:95%;">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Genre</th>
+                                        <th>User</th>
+                                        <th>Rating</th>
+                                        <th>Comment</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var r in @Model.recenzije)
+                                    {
+                                        <tr>
+                                            <td><a asp-page="/Book" asp-route-id="@r.knjigaID" asp-route-zanr="@r.zanrknjige">@r.nazivknjige</a></td>
+                                            <td>@r.zanrknjige</td>
+                                            <td>@r.korisnikID</td>
+                                            <td>@r.ocena</td>
+                                            <td>@r.komentar</td>
+                                            <td><button class="otkaziRez" asp-route-id="@r.knjigaID" asp-route-kId="@r.korisnikID" asp-page-handler="ObrisiRec" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            </div>
+                        }
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTable(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<script>
+    var getParams = function (url) {
+	var params = {};
+	var parser = document.createElement('a');
+	parser.href = url;
+	var query = parser.search.substring(1);
+	var vars = query.split('&');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split('=');
+		params[pair[0]] = decodeURIComponent(pair[1]);
+	}
+	return params;
+};
+var el = document.getElementById('informacija');
+	var parametri = getParams(window.location.href);
+	if(parametri.success=="minus")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You changed the quantity(-)!";
+            openTable(event, 'Books');
+    	}
+	}
+    if(parametri.success=="plus")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You changed the quantity(+)!";
+            openTable(event, 'Books');
+    	}
+	}
+    if(parametri.success=="dRez")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You deleted a reservation!";
+            openTable(event, 'Reservations');
+    	}
+	}
+    if(parametri.success=="dRec")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You deleted a review!";
+            openTable(event, 'Reviews')
+    	}
+	}
+    if(parametri.success=="dBook")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You deleted a book!";
+            openTable(event, 'Books');
+    	}
+	}
+    if(parametri.success=="sAktivno")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You changed status to Aktivno!";
+            openTable(event, 'Reservations');
+    	}
+	}
+    if(parametri.success=="sRealizovano")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You changed status to Realizovano!";
+            openTable(event, 'Reservations');
+    	}
+	}
+</script>

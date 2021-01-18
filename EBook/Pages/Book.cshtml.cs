@@ -26,6 +26,12 @@ namespace EBook.Pages
         [BindProperty]
         public string zanr { get; set; }
         [BindProperty]
+        public string opis { get; set; }
+        [BindProperty]
+        public string naziv { get; set; }
+        [BindProperty]
+        public string emailKorisnika { get; set; }
+        [BindProperty]
         public Knjiga knjiga { get; set; }
         public IList<Knjiga> slicneKnjige { get; set; }
         public IList<Recenzija> recenzije { get; set; }
@@ -33,26 +39,21 @@ namespace EBook.Pages
         public IList<float> brOcenaPosebno { get; set; }
         public float brojOcena { get; set; }
         public float prosecnaOcena { get; set; }
-        private readonly ILogger<BookModel> _logger;
-
-        public BookModel(ILogger<BookModel> logger)
-        {
-            _logger = logger;
-        }
 
         public void OnGet(string id, string zanr)
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
-
             String email = HttpContext.Session.GetString("email");
             if(!String.IsNullOrEmpty(email))
             {
                 Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
-                Message = "Welcome " + korisnik.ime;
+                if(korisnik.tip==1)
+                    Message="Admin";
+                else
+                    Message="User";    
+                //Message = "Welcome " + korisnik.ime;
             }
-            
-            
             knjiga = mapper.First<Knjiga>("select * from \"Knjiga\" where \"knjigaID\"= ? and zanr= ?", id,zanr);
             recenzije = mapper.Fetch<Recenzija>("select * from \"Recenzija\" where \"knjigaID\"= ?", knjiga.knjigaID).ToList<Recenzija>();
             izracunajOcene();
@@ -71,27 +72,43 @@ namespace EBook.Pages
             } 
         }
 
-        public async Task<IActionResult> OnPostRez()
+        public IActionResult OnPostRez()
         {
             int brojac=0;
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
-
             String email = HttpContext.Session.GetString("email");
             if(!String.IsNullOrEmpty(email))
             {
                 Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
                 Knjiga k = mapper.First<Knjiga>("select * from \"Knjiga\" where \"knjigaID\"= ? and zanr= ?", idKnjiga, zanr);
+                //mogucnost da admin moze da rezervise neku knjigu za nekog korisnika ukoliko unese korisnikovu mail adresu
+                if(korisnik.tip==1)
+                {
+                    Korisnik kor = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + emailKorisnika + "'");
+                    if(kor!=null)
+                    {
+                        String queryUpdate = $"update \"EBook\".\"Knjiga\" set kolicina = {k.kolicina-1} where \"knjigaID\"='{idKnjiga}' and zanr='{zanr}'";
+                        session.Execute(queryUpdate);
+                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{kor.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Aktivno', '{k.naziv}', '{k.zanr}')";
+                        session.Execute(query);
+                        return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=AdminTrue").ToString());
+                    }
+                    return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=AdminFalse").ToString());
+                }
+                //da izbroji korisnikove rezervacije
                 IList<Rezervacija> rezervacije = new List<Rezervacija>();
                 rezervacije = mapper.Fetch<Rezervacija>("select * from \"Rezervacija\" where \"korisnikID\"=?", korisnik.korisnikID).ToList<Rezervacija>();
                 for(int i = 0;i<rezervacije.Count;i++)
                 {
-                    if(rezervacije.ElementAt(i).status.Equals("Aktivno"))
+                    if(rezervacije.ElementAt(i).status.Equals("Na cekanju"))
                         brojac++;
                 }
+                //ako postoji bar jedna knjiga u bazi sa tim imenom i zanrom
                 if(k.kolicina>0)
                 {
-                    if(brojac>5)
+                    //ako korisnik ima vise od 5 aktivnih rezervacija da mu onemoguci dok ne preuzme odredjene rezervacije
+                    if(brojac>=5)
                     {
                         return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=false").ToString());
                     }
@@ -99,7 +116,7 @@ namespace EBook.Pages
                     {
                         String queryUpdate = $"update \"EBook\".\"Knjiga\" set kolicina = {k.kolicina-1} where \"knjigaID\"='{idKnjiga}' and zanr='{zanr}'";
                         session.Execute(queryUpdate);
-                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Aktivno')";
+                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Na cekanju', '{k.naziv}', '{k.zanr}')";
                         session.Execute(query);
                         return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=true").ToString());
                     }
@@ -109,28 +126,33 @@ namespace EBook.Pages
                     return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=out").ToString());
                 }
             }
-            return RedirectToPage("/Login");
-            
+            else
+            {
+                return RedirectToPage("/Login");
+            }
         }
 
-        public async Task<IActionResult> OnPostRec()
+        public IActionResult OnPostRec()
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
-
             String email = HttpContext.Session.GetString("email");
             if(!String.IsNullOrEmpty(email))
             {
                 Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
+                if(korisnik.tip==1)
+                {
+                    return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=admin").ToString());
+                }
                 Recenzija recenzija = mapper.FirstOrDefault<Recenzija>("select * from \"Recenzija\" where \"knjigaID\"= ? and \"korisnikID\"= ?", idKnjiga,korisnik.korisnikID.ToString());
                 if(recenzija==null)
                 {
-                    String query = $"insert into \"EBook\".\"Recenzija\" (\"recenzijaID\",\"korisnikID\", \"knjigaID\", komentar, ocena,nazivknjige,zanrknjige,opisknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{komentar}',{ocena}, '{knjiga.naziv}', '{knjiga.zanr}', '{knjiga.opis}')";
+                    String query = $"insert into \"EBook\".\"Recenzija\" (\"recenzijaID\",\"korisnikID\", \"knjigaID\", komentar, ocena,nazivknjige,zanrknjige,opisknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{komentar}',{ocena}, '{naziv}', '{zanr}', '{opis}')";
                     session.Execute(query);
                     return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr).ToString());
                 }
                 else{
-                    return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr).ToString());
+                    return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=already").ToString());
                 }
             }
             else
@@ -139,14 +161,20 @@ namespace EBook.Pages
             }
         }
 
+        public IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Remove("email");
+            Message = null;
+            return RedirectToPage("/Index");
+        }
+
         public void izracunajOcene()
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
-            float brojac1,brojac2,brojac3,brojac4,brojac5;
-            brojac1=brojac2=brojac3=brojac4=brojac5=0;
+            float brojac1,brojac2,brojac3,brojac4,brojac5,ocene;
+            brojac1=brojac2=brojac3=brojac4=brojac5=ocene=0;
             recenzije = mapper.Fetch<Recenzija>("select * from \"Recenzija\" where \"knjigaID\"= ?", knjiga.knjigaID).ToList<Recenzija>();
-            float ocene = 0;
             foreach(Recenzija r in recenzije)
             {
                 brojOcena++;
@@ -162,21 +190,14 @@ namespace EBook.Pages
                 else
                     brojac5++;
             }
-            prosecnaOcena=ocene/brojOcena;
+            prosecnaOcena=(float)Math.Round(ocene/brojOcena,2);
             prosek = new List<string>();
             brOcenaPosebno = new List<float>();
-            float prosek1 = (brojac1/brojOcena)*100;
-            float prosek2 = (brojac2/brojOcena)*100;
-            float prosek3 = (brojac3/brojOcena)*100;
-            float prosek4 = (brojac4/brojOcena)*100;
-            float prosek5 = (brojac5/brojOcena)*100;
-            prosek.Add("prvi");
-            prosek.Add(("width:"+prosek1+"%").ToString());
-            prosek.Add(("width:"+prosek2+"%").ToString());
-            prosek.Add(("width:"+prosek3+"%").ToString());
-            prosek.Add(("width:"+prosek4+"%").ToString());
-            prosek.Add(("width:"+prosek5+"%").ToString());
-            brOcenaPosebno.Add(0);
+            prosek.Add(("width:"+(brojac1/brojOcena)*100+"%").ToString());
+            prosek.Add(("width:"+(brojac2/brojOcena)*100+"%").ToString());
+            prosek.Add(("width:"+(brojac3/brojOcena)*100+"%").ToString());
+            prosek.Add(("width:"+(brojac4/brojOcena)*100+"%").ToString());
+            prosek.Add(("width:"+(brojac5/brojOcena)*100+"%").ToString());
             brOcenaPosebno.Add(brojac1);
             brOcenaPosebno.Add(brojac2);
             brOcenaPosebno.Add(brojac3);

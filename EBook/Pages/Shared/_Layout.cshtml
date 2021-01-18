@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>eBook | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Chronicle Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -59,15 +58,31 @@
                             <li>
                                 <a asp-page="/Contact">Contact</a>
                             </li>
-                            @if(Model.Message!=null)
+                            @if(Model.Message=="User")
                             {
+                            <li>
+                                <a asp-page="/Profile" title="SignIn & SignUp">
+                                    <span class="fa fa-user nav-icon" aria-hidden="true"></span>
+                                </a>
+                            </li>    
+                            <li>
+                                <a asp-page="/Index" asp-page-handler="Logout">Logout</a>
+                            </li>
+                            }
+                            else if(Model.Message=="Admin")
+                            {
+                            <li>
+                                <a asp-page="/Admin" title="SignIn & SignUp">
+                                    <span class="fa fa-user nav-icon" aria-hidden="true"></span>
+                                </a>
+                            </li>    
                             <li>
                                 <a asp-page="/Index" asp-page-handler="Logout">Logout</a>
                             </li>
                             }
                             else
                             {
-                                <li>
+                            <li>
                                 <a asp-page="/Login" title="SignIn & SignUp">
                                     <span class="fa fa-user nav-icon" aria-hidden="true"></span>
                                 </a>
@@ -95,7 +110,7 @@
                         <!-- //search-bar ends here -->
                     </div>
                     <!-- /.navbar-collapse -->
-                    <h4>@Model.Message</h4>
+                    <!--<h4>@Model.Message</h4>-->
                     <div class="clearfix"></div>
                 </div>
                 <!-- /.container -->
@@ -117,35 +132,35 @@
                 
                 <div class="footer-cpy">
                     <!-- footer-grid1 -->
-                    <div class="col-md-3 col-sm-6 footer-logo">
+                    <div class="col-md-3 col-sm-6 footer-logo" style="margin-left:75px;">
                         <h3>
-                            <a href="index.html">Chronicle</a>
+                            <a asp-page="/Index">eBook</a>
                         </h3>
                         <h4>about us</h4>
-                        <p>Vallis Molestie Arcu Morbi Dapibus Suscipit Ante Sit Efficitur Eu estie Arcu Mor Anestie Ate Vesti.</p>
+                        <p>We are your favourite online library. Always there for You!</p>
                     </div>
                     <!-- //footer-grid1 -->
                     <!-- footer-grid2 -->
-                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                    <div class="col-md-3 col-sm-6 footer-nav text-center" style="margin-left:75px;">
                         <h4>navigation</h4>
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a asp-page="/Index">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About us</a>
+                                <a asp-page="/Privacy">About us</a>
                             </li>
                             <li>
-                                <a href="shop.html">shop</a>
+                                <a asp-page="/Library">Library</a>
                             </li>
                             <li>
-                                <a href="contact.html">contact us</a>
+                                <a asp-page="/Contact">contact us</a>
                             </li>
                         </ul>
                     </div>
                     <!-- //footer-grid2 -->
                     <!-- footer-grid3 -->
-                    <div class="col-md-3 col-sm-6 blog-footer">
+                    <!--<div class="col-md-3 col-sm-6 blog-footer">
                         <h4>latest from blog</h4>
                         <div class="blog1">
                             <div class="col-md-3 col-sm-3 col-xs-2 bl1">
@@ -171,24 +186,24 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- //footer-grid3 -->
                     <!-- footer-grid4 -->
-                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                    <div class="col-md-3 col-sm-6 contact-foot text-right" style="margin-left:75px;">
                         <h4>contact us</h4>
                         <ul>
                             <li>
                                 <span class="fa fa-home"></span>
-                                1185 Burlington
-                                <br> Canada.
+                                18000 Nis
+                                <br> Serbia.
                             </li>
                             <li>
                                 <span class="fa fa-phone"></span>
-                                +12 345 678
+                                +381 65 55 777
                             </li>
                             <li>
                                 <span class="fa fa-envelope"></span>
-                                <a href="mailto:info@example.com">mail@chronicle.com</a>
+                                <a href="mailto:eBook.register@gmail.com">eBook.register@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -228,8 +243,7 @@
         </div>
         <!-- //footer -->
         <div class="cpy-right">
-            <p>© 2018 Chronicle. All rights reserved | Design by
-                <a href="http://w3layouts.com"> W3layouts.</a>
+            <p>© 2021 eBook. All rights reserved
             </p>
         </div>
     </div>

@@ -34,11 +34,11 @@
                                 @foreach(var r in @Model.rezervacije)
                                 {
                                     <tr>
-                                        <td>@r.knjigaID</td>
-                                        <td>Zanr</td>
+                                        <td><a asp-page="/Book" asp-route-id="@r.knjigaID" asp-route-zanr="@r.zanrknjige">@r.nazivknjige</a></td>
+                                        <td>@r.zanrknjige</td>
                                         <td>@r.datum.ToString("dd.MM.yyyy.")</td>
                                         <td>@r.status</td>
-                                        @if(r.status=="Aktivno"){
+                                        @if(r.status=="Na cekanju"){
                                             <td><button class="otkaziRez" asp-route-id="@r.rezervacijaID" asp-route-kId="@r.korisnikID" asp-page-handler="ObrisiRez" onclick="return confirm('Are you sure you want to cancel this reservation?');">Cancel reservation</button></td>}
                                     </tr>
                                 }

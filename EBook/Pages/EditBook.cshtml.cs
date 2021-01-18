@@ -36,7 +36,11 @@ namespace MyApp.Namespace
             if(!String.IsNullOrEmpty(email))
             {
                 Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
-                Message = "Welcome " + korisnik.ime;
+                if(korisnik.tip==1)
+                    Message="Admin";
+                else
+                    Message="User";
+                //Message = "Welcome " + korisnik.ime;
             }
             string slikaPrep="data:image/jpeg;base64,";
                 

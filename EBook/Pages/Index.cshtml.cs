@@ -42,7 +42,11 @@ namespace EBook.Pages
             if(!String.IsNullOrEmpty(email))
             {
                 Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
-                Message = "Welcome " + korisnik.ime;
+                if(korisnik.tip==1)
+                    Message="Admin";
+                else
+                    Message="User";
+                //Message = "Welcome " + korisnik.ime;
             }
             
             kategorije = mapper.Fetch<string>("SELECT DISTINCT zanr FROM \"Knjiga\"");

@@ -51,12 +51,12 @@
 		</div>
 		<!-- //banner -->
 		<!-- breadcrumbs -->
-		<div class="crumbs text-center">
+		<!--<div class="crumbs text-center">
 			<div class="container">
 				<div class="row">
 					<ul class="btn-group btn-breadcrumb bc-list">
 						<li class="btn btn1">
-							<a href="index.html">
+							<a asp-page="/Index">
 								<i class="glyphicon glyphicon-home"></i>
 							</a>
 						</li>
@@ -69,7 +69,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<!--//breadcrumbs ends here-->
 		<div id = "informacija"></div>
 		<!-- Single -->
@@ -91,24 +91,30 @@
 				<div class="col-md-8 single-right-left simpleCart_shelfItem">
 					<h3 style="text-transform:none;">@Model.knjiga.naziv
 						<span> | @Model.knjiga.zanr</span>
+						@if(Model.brojOcena==0){
+						<span> | No ratings</span>}
+						else{ 
+						<span> | @Model.prosecnaOcena </span>}
+						@if(Model.Message == "Admin"){
+						<span><a asp-page="/EditBook" asp-route-id="@Model.knjiga.knjigaID" asp-route-zanr="@Model.knjiga.zanr"> Edit</a></span>}
 					</h3>
 					<p>@Model.knjiga.autor</p>
 					
 					<div class="desc_single">
-						<h5>Opis</h5>
+						<h5>Description</h5>
 						<p style="text-transform:none;">@Model.knjiga.opis</p>
 					</div>
 					<div class="occasional">
-						<h5>Specifikacije</h5>
+						<h5>Specifications</h5>
 						<ul class="single_specific">
 							<li>
-								<span>Jezik:</span> @Model.knjiga.jezik</li>
+								<span>Language:</span> @Model.knjiga.jezik</li>
 							<li>
-								<span>Godina izdavanja:</span> @Model.knjiga.godina</li>
+								<span style="text-transform:none;">Year of release:</span> @Model.knjiga.godina</li>
 							<li>
-								<span>Broj strana:</span> @Model.knjiga.brstrana</li>
+								<span style="text-transform:none;">Number of pages:</span> @Model.knjiga.brstrana</li>
 							<li>
-								<span>Pismo:</span> @Model.knjiga.pismo</li>
+								<span>Letter:</span> @Model.knjiga.pismo</li>
 						</ul>
 					</div>
 					
@@ -121,10 +127,25 @@
 							<form asp-page-handler="Rez" method="post">
 								<input type="hidden" value="@Model.knjiga.knjigaID" asp-for="@Model.idKnjiga">
 								<input type="hidden" value="@Model.knjiga.zanr" asp-for="@Model.zanr">
-								@if(Model.knjiga.kolicina>0){
-									<button type="submit" style="height:40px; width:150px;" class="chr-cart pchr-cart">Reserve</button>}
-								else{
-									<label>This book is out of stock.</label>}
+								@if(Model.Message=="Admin")
+								{
+									@if(Model.knjiga.kolicina>0){
+										<a id="admin-rez" style="height:40px; width:150px; cursor:pointer;" class="chr-cart pchr-cart">Open form</a>}
+									else{
+										<label>This book is out of stock.</label>}
+									<div id="formaZaRez" style="display:none;">
+										<label>User's email</label>
+										<input type="text" style="width:200px;" asp-for="@Model.emailKorisnika">
+										<button type="submit" style="height:40px; width:150px;" class="chr-cart pchr-cart">Reserve</button>
+									</div>
+								}
+								else
+								{
+									@if(Model.knjiga.kolicina>0){
+										<button type="submit" style="height:40px; width:150px;" class="chr-cart pchr-cart">Reserve</button>}
+									else{
+										<label>This book is out of stock.</label>}
+								}
 							</form>
 						</div>
 					</div>
@@ -135,7 +156,7 @@
 						<h4 class="rad-txt">
 							<span class="abtext">Reviews</span>
 						</h4>
-						<div style="width:100%;">
+						<div style="width:100%; overflow-y:scroll; height:240px;">
 							<table style="width:100%;" class="table">
 								<thead>
 									<th>Rating</th>
@@ -160,24 +181,24 @@
 						<div>
 							<div style="width:100%; margin-top:10px; float:right;" class="col-xs-12 col-md-6">
 								<div style="width:100%; float:right;" class="row rating-desc">
-									@for(int i=5;i>0;i--)
+									@for(int i=4;i>=0;i--)
 									{
 										<div class="col-xs-3 col-md-3 text-right">
 											<span class="glyphicon glyphicon-star"></span>
-											<span>@i (@Model.brOcenaPosebno[i]) </span>
+											<span>@(i+1) (@Model.brOcenaPosebno[i]) </span>
 										</div>
 										<div class="col-xs-8 col-md-9">
 											<div class="progress">
-												@if(i==5){
-													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[@i]"></div>}
-												else if(i==4){
-													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[@i]"></div>}
+												@if(i==4){
+													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[i]"></div>}
 												else if(i==3){
-													<div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[@i]"></div>}
+													<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[i]"></div>}
 												else if(i==2){
-													<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[@i]"></div>}
+													<div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[i]"></div>}
+												else if(i==1){
+													<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[i]"></div>}
 												else{
-													<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[@i]"></div>}
+													<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="@Model.prosek[i]"></div>}
 											</div>
 										</div>
 									}
@@ -198,7 +219,9 @@
 					<div class="kontejner">
 						<div class="recTekst">
 							<input type="hidden" id="idIn1" value="@Model.knjiga.knjigaID" asp-for="@Model.idKnjiga">
-							<input type="hidden" id="idIn2" value="@Model.knjiga.zanr" asp-for="@Model.zanr">
+							<input type="hidden" id="idIn1" value="@Model.knjiga.zanr" asp-for="@Model.zanr">
+							<input type="hidden" id="idIn1" value="@Model.knjiga.opis" asp-for="@Model.opis">
+							<input type="hidden" id="idIn1" value="@Model.knjiga.naziv" asp-for="@Model.naziv">
 							<textarea id="tekstKom" placeholder="Enter comment.." maxlength="100" asp-for="@Model.komentar"></textarea>
 							<label class="error3" style="visibility:hidden;">Wrong input!</label>
 						</div>
@@ -365,6 +388,7 @@
 	<!-- smoothscroll -->
 	<!--<script src="js/SmoothScroll.min.js"></script>-->
 	<!-- //smoothscroll -->
+<script src="js/validacijaRec.js"></script> 
 <script>
 		$(document).ready(function prikazFormi(){
     $("#dodajRec").click(function(){
@@ -377,6 +401,10 @@
         $("#FormaRec").css("display","none");
         $("#dodajRec").css("display","block");
         $("#dodajRecInfo").css("display","none");
+    });
+	$("#admin-rez").click(function(){
+        $("#formaZaRez").css("display","block");
+		$("#admin-rez").css("display","none");
     });
     
 });
@@ -403,13 +431,6 @@ function formatDate(date) {
     return day + ". " + month + ". " + year + ".";
 }
 
-function showSuccessMessage(){
-	$("#informacija").css("display","block");
-	var el = document.getElementById('informacija');
-	var date = new Date(new Date().getTime()+(3*24*60*60*1000));
-	$("#informacija").css("background-color","#34c663");
-	el.innerHTML="Your book is waiting for You until " + formatDate(date) + " !";
-};
 	var el = document.getElementById('informacija');
 	var parametri = getParams(window.location.href);
 	if(parametri.success=="true")
@@ -435,6 +456,38 @@ function showSuccessMessage(){
     		$("#informacija").css("display","block");
 			$("#informacija").css("background-color","#ee4f4f");
 			el.innerHTML="This book is out of stock!";
+    	}
+	}
+	if(parametri.success=="already")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#ee4f4f");
+			el.innerHTML="You already left a review about this book!";
+    	}
+	}
+	if(parametri.success=="admin")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#ee4f4f");
+			el.innerHTML="Admins do not have permissions for this action!";
+    	}
+	}
+	if(parametri.success=="AdminTrue")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#34c663");
+			el.innerHTML="You made the reservation!";
+    	}
+	}
+	if(parametri.success=="AdminFalse")
+	{
+		window.onload = function() { 
+    		$("#informacija").css("display","block");
+			$("#informacija").css("background-color","#ee4f4f");
+			el.innerHTML="Email address is incorrect. Please register!";
     	}
 	}
 </script>

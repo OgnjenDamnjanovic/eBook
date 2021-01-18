@@ -1,4 +1,32 @@
 ﻿@page
-@model MyApp.Namespace.ContactModel
+@model EBook.Pages.ContactModel
 @{
 }
+<head>
+    <title>eBook | Contact</title>
+	<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css">
+</head>
+<div class="container">
+<div class="contact_top" style="margin-top:130px;">
+	<div class="col-md-6 contact_left wow fadeInRight" data-wow-delay="0.4s">
+		<h4>Contact Info</h4>
+		<p>If you have any question, please contact us.</p>
+		<p>e-mail:<a href="mailto:eBook.register@gmail.com">eBook.register@gmail.com</a></p>
+		<p>Phone:  +381 65 55 777</p>
+		<p>Address: Dragise Cvetkovica 15</p>
+		<p>City: Nis</p>
+		<p>State: Serbia</p>
+	</div>
+	<div class="col-md-6 company-right wow fadeInLeft" data-wow-delay="0.4s" >
+		<div class="location1" >
+			<div id = "mapa" ></div>
+		</div>
+	</div>
+</div>
+</div>
+<input id = "lat" type="hidden" value="43.319070">
+<input id = "lng" type="hidden" value="21.914260">
+<div class="prazan"></div>
+
+<script src="js/map.js"></script>

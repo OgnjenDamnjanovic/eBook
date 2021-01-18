@@ -213,121 +213,121 @@ CREATE TABLE "EBook"."Rezervacija"(
 );
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '1', '2020-02-11 04:05+0000', '1', 'Realizovano', 'Serviraj za pobedu', 'Sport');
+('1', '1', '2020-02-11 04:05+0000', '1', 'Realizovano', 'Ni ovde, ni tamo', 'Putopisi');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '2', '2020-06-11 04:05+0000', '1', 'Realizovano','Malo mrznje', 'Fantastika');
+('2', '2', '2020-06-11 04:05+0000', '1', 'Realizovano','Ni ovde, ni tamo', 'Putopisi');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '3', '2020-07-11 04:05+0000', '2', 'Realizovano','Umetnost pobede', 'Autobiografija');
+('3', '3', '2020-07-11 04:05+0000', '2', 'Realizovano','Put do zvezda', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
 ('4', '4', '2020-02-10 04:05+0000', '3', 'Realizovano', 'Ja', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '5', '2020-01-07 04:05+0000', '4', 'Realizovano', 'Serviraj za pobedu', 'Sport');
+('5', '5', '2020-01-07 04:05+0000', '4', 'Realizovano', 'Umetnost pobede', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('6', '6', '2020-02-07 04:05+0000', '7', 'Realizovano','Umetnost pobede', 'Autobiografija');
+('6', '6', '2020-02-07 04:05+0000', '7', 'Realizovano','Biti Elvis', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '7', '2020-03-11 04:05+0000', '8', 'Realizovano','Dobrovoljac', 'Istorija');
+('1', '7', '2020-03-11 04:05+0000', '8', 'Realizovano','Bunt dece socijalizma', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '8', '2020-04-11 04:05+0000', '9', 'Realizovano', 'Ja', 'Autobiografija');
+('2', '8', '2020-04-11 04:05+0000', '9', 'Realizovano', 'Uznemireni ljudi', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '9', '2020-05-11 04:05+0000', '9', 'Realizovano','Malo mrznje', 'Fantastika');
+('3', '9', '2020-05-11 04:05+0000', '9', 'Realizovano', 'Uznemireni ljudi', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('4', '10', '2020-02-06 04:05+0000', '9', 'Realizovano','Bunt dece socijalizma', 'Muzika');
+('4', '10', '2020-02-06 04:05+0000', '9', 'Realizovano', 'Uznemireni ljudi', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '11', '2020-03-03 04:05+0000', '11', 'Realizovano','Dobrovoljac', 'Istorija');
+('5', '11', '2020-03-03 04:05+0000', '11', 'Realizovano','Pun pansion', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('6', '12', '2020-07-11 04:05+0000', '13', 'Realizovano', 'Serviraj za pobedu', 'Sport');
+('6', '12', '2020-07-11 04:05+0000', '13', 'Realizovano', 'Ljudski aparat', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '13', '2020-02-09 04:05+0000', '13', 'Realizovano', 'Ja', 'Autobiografija');
+('1', '13', '2020-02-09 04:05+0000', '13', 'Realizovano', 'Ljudski aparat', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '14', '2020-01-10 04:05+0000', '15', 'Realizovano','Bunt dece socijalizma', 'Muzika');
+('1', '14', '2020-01-10 04:05+0000', '15', 'Realizovano','Dobrovoljac', 'Istorija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '15', '2020-11-21 04:05+0000', '15', 'Realizovano','Umetnost pobede', 'Autobiografija');
+('2', '15', '2020-11-21 04:05+0000', '15', 'Realizovano','Dobrovoljac', 'Istorija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '16', '2020-11-29 04:05+0000', '16', 'Realizovano','Dobrovoljac', 'Istorija');
+('2', '16', '2020-11-29 04:05+0000', '16', 'Realizovano','Serviraj za pobedu', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
 ('3', '17', '2020-08-28 04:05+0000', '16', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '18', '2020-07-20 04:05+0000', '16', 'Realizovano','Dobrovoljac', 'Istorija');
+('3', '18', '2020-07-20 04:05+0000', '16', 'Realizovano','Serviraj za pobedu', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '19', '2020-05-06 04:05+0000', '16', 'Realizovano', 'Ja', 'Autobiografija');
+('5', '19', '2020-05-06 04:05+0000', '16', 'Realizovano', 'Serviraj za pobedu', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
 ('5', '20', '2020-05-04 04:05+0000', '20', 'Realizovano','Malo mrznje', 'Fantastika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '21', '2020-12-23 04:05+0000', '17', 'Aktivno', 'Pun pansion', 'Komedija');
+('2', '21', '2020-12-23 04:05+0000', '17', 'Aktivno', 'Montevideo, Bog te video!', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '22', '2020-12-18 04:05+0000', '10', 'Aktivno', 'Pun pansion', 'Komedija');
+('3', '22', '2020-12-18 04:05+0000', '10', 'Aktivno', 'Kvalitilend', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('6', '23', '2020-12-20 04:05+0000', '10', 'Aktivno', 'Biti Elvis', 'Muzika');
+('6', '23', '2020-12-20 04:05+0000', '10', 'Aktivno', 'Kvalitilend', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '24', '2020-12-17 04:05+0000', '4', 'Aktivno', 'Serviraj za pobedu', 'Sport');
+('5', '24', '2020-12-17 04:05+0000', '4', 'Aktivno', 'Umetnost pobede', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '25', '2020-12-28 04:05+0000', '17', 'Aktivno','Dobrovoljac', 'Istorija');
+('5', '25', '2020-12-28 04:05+0000', '17', 'Aktivno','Montevideo, Bog te video!', 'Sport');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '26', '2021-01-02 04:05+0000', '7', 'Aktivno', 'Ni ovde, ni tamo', 'Putopisi');
+('2', '26', '2021-01-02 04:05+0000', '7', 'Aktivno', 'Biti Elvis', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '27', '2021-01-03 04:05+0000', '3', 'Aktivno', 'Ni ovde, ni tamo', 'Putopisi');
+('1', '27', '2021-01-03 04:05+0000', '3', 'Aktivno', 'Ja', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
 ('4', '28', '2021-01-04 04:05+0000', '7', 'Aktivno', 'Biti Elvis', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('1', '29', '2021-01-05 04:05+0000', '19', 'Aktivno', 'Serviraj za pobedu', 'Sport');
+('1', '29', '2021-01-05 04:05+0000', '19', 'Aktivno', 'Ada', 'Drama');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '30', '2020-12-21 04:05+0000', '19', 'Aktivno','Malo mrznje', 'Fantastika');
+('3', '30', '2020-12-21 04:05+0000', '19', 'Aktivno','Ada', 'Drama');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
 ('6', '31', '2020-07-08 04:05+0000', '1', 'Isteklo', 'Ni ovde, ni tamo', 'Putopisi');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '32', '2020-08-10 04:05+0000', '2', 'Isteklo','Zivot i doba Malog Groma','Komedija');
+('2', '32', '2020-08-10 04:05+0000', '2', 'Isteklo','Put do zvezda', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('3', '33', '2020-09-09 04:05+0000', '3', 'Isteklo', 'Ni ovde, ni tamo', 'Putopisi');
+('3', '33', '2020-09-09 04:05+0000', '3', 'Isteklo', 'Ja', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('4', '34', '2020-05-21 04:05+0000', '4', 'Isteklo','Uznemireni ljudi', 'Komedija');
+('4', '34', '2020-05-21 04:05+0000', '4', 'Isteklo','Umetnost pobede', 'Autobiografija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '35', '2020-05-22 04:05+0000', '6', 'Isteklo','Malo mrznje', 'Fantastika');
+('5', '35', '2020-05-22 04:05+0000', '6', 'Isteklo','Dva su jahaca prilazila', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('6', '36', '2020-04-23 04:05+0000', '8', 'Isteklo', 'Serviraj za pobedu', 'Sport');
+('6', '36', '2020-04-23 04:05+0000', '8', 'Isteklo', 'Bunt dece socijalizma', 'Muzika');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('4', '37', '2020-10-23 04:05+0000', '10', 'Isteklo','Zivot i doba Malog Groma','Komedija');
+('4', '37', '2020-10-23 04:05+0000', '10', 'Isteklo','Kvalitilend', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '38', '2020-08-19 04:05+0000', '11', 'Isteklo','Uznemireni ljudi', 'Komedija');
+('2', '38', '2020-08-19 04:05+0000', '11', 'Isteklo','Pun pansion', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('2', '39', '2020-06-10 04:05+0000', '13', 'Isteklo','Zivot i doba Malog Groma','Komedija');
+('2', '39', '2020-06-10 04:05+0000', '13', 'Isteklo','Ljudski aparat', 'Komedija');
 
 INSERT INTO "EBook"."Rezervacija" ("korisnikID","rezervacijaID",datum,"knjigaID",status,nazivknjige,zanrknjige) VALUES
-('5', '40', '2020-11-07 04:05+0000', '15', 'Isteklo','Zivot i doba Malog Groma','Komedija');
+('5', '40', '2020-11-07 04:05+0000', '15', 'Isteklo','Dobrovoljac', 'Istorija');

@@ -24,21 +24,24 @@ namespace EBook.Pages
         [BindProperty]
         public string newPassword {get;set;}
 
-        public void OnGet()
+        public void OnGet(string success)
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
-
             String email = HttpContext.Session.GetString("email");
             if(!String.IsNullOrEmpty(email))
             {
                 korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
-                Message = "Welcome " + korisnik.ime;
-                rezervacije = mapper.Fetch<Rezervacija>("select * from \"Rezervacija\" where \"korisnikID\"=?", korisnik.korisnikID).OrderBy(x=>x.datum).ToList<Rezervacija>();
+                if(korisnik.tip==1)
+                    Message="Admin";
+                else
+                    Message="User";
+                //Message = "Welcome " + korisnik.ime;
+                rezervacije = mapper.Fetch<Rezervacija>("select * from \"EBook\".\"Rezervacija\" where \"korisnikID\"=?", korisnik.korisnikID).OrderBy(x=>x.datum).ToList<Rezervacija>();
             } 
         }
 
-        public async Task<IActionResult> OnPostSacuvajAsync()
+        public IActionResult OnPostSacuvaj()
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
@@ -47,13 +50,13 @@ namespace EBook.Pages
             korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
             if(newPassword!=null && !newPassword.Equals(""))
             {
-                String query = $"update \"EBook\".\"Korisnik\" set sifra = '{newPassword}' where email= '" + "ognjen.damnjanovic@elfak.rs" + $"' and \"korisnikID\"='{korisnik.korisnikID}'";
+                String query = $"update \"EBook\".korisnik set sifra = '{newPassword}' where email= '" + email + $"' and korisnikid='{korisnik.korisnikID}'";
                 session.Execute(query);
             }
             return Redirect("./Login");
         }
 
-        public async Task<IActionResult> OnPostObrisiRez(string id, string kId)
+        public IActionResult OnPostObrisiRez(string id, string kId)
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
