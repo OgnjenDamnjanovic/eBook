@@ -18,7 +18,7 @@
             <div id="Books" class="tabcontent">
                 <form method="post" class="rez-tabela">
                         <h4 class="predstojece-rez">Books</h4>
-                        <button asp-page="/NewBook">Add book</button>
+                        <a asp-page="/NewBook">Add book</a>
                         @if(Model.knjige.Count==0)
                         {
                             <label class="nema-rez">There are no Books!</label>
@@ -55,7 +55,7 @@
                                             <td>@k.godina</td>
                                             <td>@k.jezik</td>
                                             <td>@k.kolicina</td>
-                                            <td><button class="otkaziRez" asp-page="/EditBook" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr">Edit</button></td>
+                                            <td><a class="otkaziRez" asp-page="/EditBook" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr">Edit</a></td>
                                             @if(k.kolicina>0){
                                                 <td><button class="otkaziRez" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr" asp-page-handler="Povecaj">+</button></td>
                                                 <td><button class="otkaziRez" asp-route-id="@k.knjigaID" asp-route-zanr="@k.zanr" asp-page-handler="Smanji">-</button></td>
@@ -98,7 +98,7 @@
                                         <tr>
                                             <td><a asp-page="/Book" asp-route-id="@r.knjigaID" asp-route-zanr="@r.zanrknjige">@r.nazivknjige</a></td>
                                             <td>@r.zanrknjige</td>
-                                            <td>@r.korisnikID</td>
+                                            <td>@r.email</td>
                                             <td>@r.datum.ToString("dd.MM.yyyy.")</td>
                                             <td>@r.status</td>
                                             @if(r.status=="Na cekanju"){
@@ -144,7 +144,7 @@
                                         <tr>
                                             <td><a asp-page="/Book" asp-route-id="@r.knjigaID" asp-route-zanr="@r.zanrknjige">@r.nazivknjige</a></td>
                                             <td>@r.zanrknjige</td>
-                                            <td>@r.korisnikID</td>
+                                            <td>@r.email</td>
                                             <td>@r.ocena</td>
                                             <td>@r.komentar</td>
                                             <td><button class="otkaziRez" asp-route-id="@r.knjigaID" asp-route-kId="@r.korisnikID" asp-page-handler="ObrisiRec" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button></td>

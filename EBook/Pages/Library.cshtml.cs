@@ -21,6 +21,7 @@ namespace MyApp.Namespace
         public string zanrFilter { get; set; }
         public List<string> zanrovi { get; set; }
         public IList<Knjiga> sveKnjige { get; set; }
+        public Knjiga knjigaSearch {get; set;}
         private IWebHostEnvironment  _environment;
         public LibraryModel(IWebHostEnvironment env)
         {
@@ -29,7 +30,7 @@ namespace MyApp.Namespace
             _environment=env;
         }
 
-        public  void OnGet(string zanr)
+        public  void OnGet(string zanr, string SearchBook)
         {   
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
@@ -44,63 +45,83 @@ namespace MyApp.Namespace
                     Message="User";
                 //Message = "Welcome " + korisnik.ime;
             }
-            
-            
-            zanrFilter=zanr;
-            HttpContext.Session.Remove("pagingState");
-            
-            foreach (var zanrRaw in session.Execute("SELECT DISTINCT zanr FROM \"Knjiga\";"))
-            {
-                zanrovi.Add(zanrRaw["zanr"].ToString());
-         
-            }
 
-            RowSet knjigeRaw;
-            if(String.IsNullOrEmpty(zanr)|!zanrovi.Contains(zanr))
-            {//all
-             var ps = session.Prepare("SELECT * from \"Knjiga\" ;");
-             var statement=ps.Bind().SetAutoPage(false).SetPageSize(10);
-              knjigeRaw=session.Execute(statement);
-             var pagingState=knjigeRaw.PagingState;
+            if(!String.IsNullOrEmpty(SearchBook))
+                knjigaSearch = mapper.FirstOrDefault<Knjiga>("select * from \"Knjiga\" where naziv like '" + SearchBook + "%'");
+            
+            if(String.IsNullOrEmpty(SearchBook) || knjigaSearch==null)
+            {
+                zanrFilter=zanr;
+                HttpContext.Session.Remove("pagingState");
+                
+                foreach (var zanrRaw in session.Execute("SELECT DISTINCT zanr FROM \"Knjiga\";"))
+                {
+                    zanrovi.Add(zanrRaw["zanr"].ToString());
+            
+                }
+
+                RowSet knjigeRaw;
+                if(String.IsNullOrEmpty(zanr)|!zanrovi.Contains(zanr))
+                {//all
+                var ps = session.Prepare("SELECT * from \"Knjiga\" ;");
+                var statement=ps.Bind().SetAutoPage(false).SetPageSize(10);
+                knjigeRaw=session.Execute(statement);
+                var pagingState=knjigeRaw.PagingState;
+                    if(pagingState!=null)
+                    HttpContext.Session.Set("pagingState",pagingState);
+                }
+                else
+                {
+                var ps = session.Prepare("SELECT * from \"Knjiga\" where zanr='"+zanr+"';");
+                var statement=ps.Bind().SetAutoPage(false).SetPageSize(5);
+                knjigeRaw=session.Execute(statement);
+                var pagingState=knjigeRaw.PagingState;
                 if(pagingState!=null)
                 HttpContext.Session.Set("pagingState",pagingState);
+                }
+
+                foreach(var knjigaRaw in knjigeRaw)
+                {
+                    Knjiga knjiga = new Knjiga();
+                    knjiga.autor = knjigaRaw["autor"] != null ? knjigaRaw["autor"].ToString() : string.Empty;
+                    knjiga.brstrana = knjigaRaw["brstrana"] != null ? knjigaRaw["brstrana"].ToString() : string.Empty;
+                    knjiga.godina = knjigaRaw["godina"] != null ? knjigaRaw["godina"].ToString() : string.Empty;
+                    knjiga.knjigaID = knjigaRaw["knjigaID"].ToString();
+                    knjiga.kolicina = knjigaRaw["kolicina"] != null ? Int32.Parse( knjigaRaw["kolicina"].ToString()) : 0;
+                    knjiga.naziv = knjigaRaw["naziv"] != null ? knjigaRaw["naziv"].ToString() : string.Empty;
+                    knjiga.opis = knjigaRaw["opis"] != null ? knjigaRaw["opis"].ToString() : string.Empty;
+                    knjiga.pismo = knjigaRaw["pismo"] != null ? knjigaRaw["pismo"].ToString() : string.Empty;
+                    knjiga.slika = knjigaRaw["slika"] != null ? knjigaRaw["slika"].ToString() : string.Empty;
+                    knjiga.zanr = knjigaRaw["zanr"] != null ? knjigaRaw["zanr"].ToString() : string.Empty;
+                    knjiga.jezik = knjigaRaw["jezik"] != null ? knjigaRaw["jezik"].ToString() : string.Empty;
+                
+                    sveKnjige.Add(knjiga);
+                }
             }
-            else
-            {
-             var ps = session.Prepare("SELECT * from \"Knjiga\" where zanr='"+zanr+"';");
-             var statement=ps.Bind().SetAutoPage(false).SetPageSize(5);
-             knjigeRaw=session.Execute(statement);
-             var pagingState=knjigeRaw.PagingState;
-              if(pagingState!=null)
-             HttpContext.Session.Set("pagingState",pagingState);
-            }
-
-               
-               
-           
-   
-
-
-            foreach(var knjigaRaw in knjigeRaw)
-            {
-                Knjiga knjiga = new Knjiga();
-                knjiga.autor = knjigaRaw["autor"] != null ? knjigaRaw["autor"].ToString() : string.Empty;
-                knjiga.brstrana = knjigaRaw["brstrana"] != null ? knjigaRaw["brstrana"].ToString() : string.Empty;
-                knjiga.godina = knjigaRaw["godina"] != null ? knjigaRaw["godina"].ToString() : string.Empty;
-                knjiga.knjigaID = knjigaRaw["knjigaID"].ToString();
-                knjiga.kolicina = knjigaRaw["kolicina"] != null ? Int32.Parse( knjigaRaw["kolicina"].ToString()) : 0;
-                knjiga.naziv = knjigaRaw["naziv"] != null ? knjigaRaw["naziv"].ToString() : string.Empty;
-                knjiga.opis = knjigaRaw["opis"] != null ? knjigaRaw["opis"].ToString() : string.Empty;
-                knjiga.pismo = knjigaRaw["pismo"] != null ? knjigaRaw["pismo"].ToString() : string.Empty;
-                knjiga.slika = knjigaRaw["slika"] != null ? knjigaRaw["slika"].ToString() : string.Empty;
-                knjiga.zanr = knjigaRaw["zanr"] != null ? knjigaRaw["zanr"].ToString() : string.Empty;
-                knjiga.jezik = knjigaRaw["jezik"] != null ? knjigaRaw["jezik"].ToString() : string.Empty;
-             
-                sveKnjige.Add(knjiga);
-             
+            else sveKnjige.Add(knjigaSearch);
         }
-        
-         }
+
+        /*public  void OnGet(string SearchBook)
+        {   
+            Cassandra.ISession session = SessionManager.GetSession();
+            IMapper mapper = new Mapper(session);
+
+            String email = HttpContext.Session.GetString("email");
+            if(!String.IsNullOrEmpty(email))
+            {
+                Korisnik korisnik = mapper.FirstOrDefault<Korisnik>("select * from korisnik where email = '" + email + "'");
+                if(korisnik.tip==1)
+                    Message="Admin";
+                else
+                    Message="User";
+                //Message = "Welcome " + korisnik.ime;
+            }
+
+            Knjiga k = mapper.FirstOrDefault<Knjiga>("select * from \"Knjiga\" where naziv = '" + SearchBook + "'");
+
+        }*/
+
+
          public JsonResult OnGetLoadMore(string selektovaniZanr)
          {
              byte[] pagingState;

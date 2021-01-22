@@ -14,5 +14,6 @@ namespace EBook.Model
         public string nazivknjige;
         public string zanrknjige;
         public string opisknjige;
+        public string email;
     }
 }

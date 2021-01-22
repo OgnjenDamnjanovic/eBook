@@ -90,7 +90,7 @@ namespace EBook.Pages
                     {
                         String queryUpdate = $"update \"EBook\".\"Knjiga\" set kolicina = {k.kolicina-1} where \"knjigaID\"='{idKnjiga}' and zanr='{zanr}'";
                         session.Execute(queryUpdate);
-                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{kor.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Aktivno', '{k.naziv}', '{k.zanr}')";
+                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige,email) values ('"+Cassandra.TimeUuid.NewId()+ $"','{kor.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Aktivno', '{k.naziv}', '{k.zanr}', '{emailKorisnika}')";
                         session.Execute(query);
                         return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=AdminTrue").ToString());
                     }
@@ -116,7 +116,7 @@ namespace EBook.Pages
                     {
                         String queryUpdate = $"update \"EBook\".\"Knjiga\" set kolicina = {k.kolicina-1} where \"knjigaID\"='{idKnjiga}' and zanr='{zanr}'";
                         session.Execute(queryUpdate);
-                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Na cekanju', '{k.naziv}', '{k.zanr}')";
+                        String query = $"insert into \"EBook\".\"Rezervacija\" (\"rezervacijaID\",\"korisnikID\", \"knjigaID\", datum, status, nazivknjige,zanrknjige,email) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{(DateTime.Now).ToString("yyyy-MM-dd'T'HH:mm:ssZ")}','Na cekanju', '{k.naziv}', '{k.zanr}', '{email}')";
                         session.Execute(query);
                         return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr+"&success=true").ToString());
                     }
@@ -147,7 +147,7 @@ namespace EBook.Pages
                 Recenzija recenzija = mapper.FirstOrDefault<Recenzija>("select * from \"Recenzija\" where \"knjigaID\"= ? and \"korisnikID\"= ?", idKnjiga,korisnik.korisnikID.ToString());
                 if(recenzija==null)
                 {
-                    String query = $"insert into \"EBook\".\"Recenzija\" (\"recenzijaID\",\"korisnikID\", \"knjigaID\", komentar, ocena,nazivknjige,zanrknjige,opisknjige) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{komentar}',{ocena}, '{naziv}', '{zanr}', '{opis}')";
+                    String query = $"insert into \"EBook\".\"Recenzija\" (\"recenzijaID\",\"korisnikID\", \"knjigaID\", komentar, ocena,nazivknjige,zanrknjige,opisknjige,email) values ('"+Cassandra.TimeUuid.NewId()+ $"','{korisnik.korisnikID.ToString()}','{idKnjiga}','{komentar}',{ocena}, '{naziv}', '{zanr}', '{opis}', '{email}')";
                     session.Execute(query);
                     return Redirect(("/Book?id="+idKnjiga+"&zanr="+zanr).ToString());
                 }
