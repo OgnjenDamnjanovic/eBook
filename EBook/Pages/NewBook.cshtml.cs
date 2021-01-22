@@ -27,7 +27,7 @@ namespace MyApp.Namespace
         {
             _environment=environment;
         }
-         public void OnGet()
+         public ActionResult OnGet()
         {
             Cassandra.ISession session = SessionManager.GetSession();
             IMapper mapper = new Mapper(session);
@@ -39,10 +39,15 @@ namespace MyApp.Namespace
                 if(korisnik.tip==1)
                     Message="Admin";
                 else
-                    Message="User";
+                    {Message="User";return RedirectToPage("/Index");}
                 //Message = "Welcome " + korisnik.ime;
             }
+            else
+            {
+                return RedirectToPage("/Login");
+            }
             novaKnjiga = new Knjiga();
+            return Page();
         }
         public IActionResult OnPost()
         {

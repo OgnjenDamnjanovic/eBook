@@ -27,7 +27,7 @@ namespace MyApp.Namespace
         {
             _environment=environment;
         }
-        public void OnGet(string zanr, string id)
+        public ActionResult OnGet(string zanr, string id)
         {
               Cassandra.ISession session = SessionManager.GetSession();
               IMapper mapper=new Mapper(session);
@@ -39,8 +39,12 @@ namespace MyApp.Namespace
                 if(korisnik.tip==1)
                     Message="Admin";
                 else
-                    Message="User";
+                   {Message="User";return RedirectToPage("/Index");}
                 //Message = "Welcome " + korisnik.ime;
+            }
+            else
+            {
+                return RedirectToPage("/Login");
             }
             string slikaPrep="data:image/jpeg;base64,";
                 
@@ -48,6 +52,7 @@ namespace MyApp.Namespace
               slikaPrep+=Convert.ToBase64String(System.IO.File.ReadAllBytes(Path.Combine(_environment.ContentRootPath, "wwwroot/"+zaEdit.slika)));
               nazivSlike=zaEdit.slika;
               zaEdit.slika=slikaPrep;
+              return Page();
         }
         public IActionResult OnPost(string staraSlika)
          {

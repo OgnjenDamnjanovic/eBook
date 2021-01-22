@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\EBook.csproj",
+  "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\EBook.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,78 +14392,78 @@
   "RootNamespace": "EBook",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Register.cshtml",
-      "TargetPath": "Pages\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\NewBook.cshtml",
-      "TargetPath": "Pages\\NewBook.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Book.cshtml",
-      "TargetPath": "Pages\\Book.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Contact.cshtml",
-      "TargetPath": "Pages\\Contact.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\EditBook.cshtml",
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\EditBook.cshtml",
       "TargetPath": "Pages\\EditBook.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Login.cshtml",
-      "TargetPath": "Pages\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Library.cshtml",
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Library.cshtml",
       "TargetPath": "Pages\\Library.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Cassandra Projekat\\eBook\\EBook\\Pages\\Profile.cshtml",
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Profile.cshtml",
       "TargetPath": "Pages\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Login.cshtml",
+      "TargetPath": "Pages\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Admin.cshtml",
+      "TargetPath": "Pages\\Admin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Index.cshtml",
+      "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Book.cshtml",
+      "TargetPath": "Pages\\Book.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\NewBook.cshtml",
+      "TargetPath": "Pages\\NewBook.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Contact.cshtml",
+      "TargetPath": "Pages\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\MaYo\\Desktop\\NBP\\Projekat\\eBook\\EBook\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

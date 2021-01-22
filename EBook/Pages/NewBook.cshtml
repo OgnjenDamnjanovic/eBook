@@ -15,7 +15,7 @@
 <span class="space-out">
    <div class="labeled-input"> <label>Name:</label> <input type="text" asp-for="novaKnjiga.naziv"></div>
    <div class="labeled-input"> <label>Author:</label> <input type="text" asp-for="novaKnjiga.autor"> </div> 
-   <div class="labeled-input"> <label>Genre:</label> <input type="text" asp-for="novaKnjiga.zanr"></div> 
+   <div class="labeled-input"> <label>Genre:</label> <input id="zanr"type="text" asp-for="novaKnjiga.zanr"></div> 
 </span></br>
 <span class="space-out">
      <div class="labeled-input"> <label>Number of pages:</label><input   asp-for="novaKnjiga.brstrana"> </div>
@@ -61,6 +61,14 @@
 
 <script>
     document.querySelector("#addBook").onsubmit=()=>{
+        if(document.querySelector("#imported-img").src=="https://localhost:5001/newBook")
+        {
+            alert("unesite sliku");  return false;
+            }
+             if(document.querySelector("#zanr").value=="")
+        {
+            alert("unesite zanr");  return false;
+            }
         document.getElementById("serialized-picture").value=document.querySelector("#imported-img").src;
   
 
